@@ -1,2 +1,4 @@
 import avatar from './avatar.png';
-export { avatar };
+import print from './print.png';
+export * from './paintings';
+export { avatar, print };
