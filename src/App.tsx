@@ -1,10 +1,11 @@
-import { Home } from 'pages';
+import { BrowserRouter } from 'react-router-dom';
+import { AnimatedRoutes } from 'pages/AnimatedRoutes';
 
 function App() {
   return (
-    <div className=''>
-      <Home />
-    </div>
+    <BrowserRouter>
+      <AnimatedRoutes />
+    </BrowserRouter>
   );
 }
 

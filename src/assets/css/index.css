@@ -2,3 +2,55 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.swiper {
+  width: 100%;
+  overflow: hidden;
+  padding-inline:120px;
+}
+
+.swiper-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: 3s swipe;
+}
+@keyframes swipe {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scale: 0.9;
+  transition: 300ms;
+}
+
+.swiper-slide:hover {
+  scale: 1.1;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-slide > div {
+  transition: 300ms;
+}
+
+.passive {
+  scale: 0.8;
+}
