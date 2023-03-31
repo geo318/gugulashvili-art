@@ -11,10 +11,12 @@ export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
     direction,
     turnLeft,
     turnRight,
-    onMouseEnter,
-    onMouseLeave,
-    onMouseMove,
     magnifier,
+    onMouseMove,
+    onMouseLeave,
+    onMouseEnter,
+    handleTouchMove,
+    handleTouchStart,
   } = useView({
     imageArr,
     index,
@@ -22,7 +24,7 @@ export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
   });
 
   return (
-    <div className='w-full flex justify-center items-center '>
+    <div className='w-full flex justify-center items-center'>
       <motion.div
         className='bg-black bg-opacity-70 fixed inset-0 z-20'
         initial={{ opacity: 0, y: '-100vh' }}
@@ -39,7 +41,7 @@ export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
         exit={{ opacity: 0, scale: 0.5 }}
       >
         <div className='h-full w-full max-w-[50rem]'>
-          <div className='px-2 pt-2 bg-white'>
+          <div className='px-2 pt-2 lg:bg-white'>
             <AnimatePresence
               mode='popLayout'
               custom={direction}
@@ -59,11 +61,13 @@ export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
                   onMouseEnter={onMouseEnter}
                   onMouseLeave={onMouseLeave}
                   onMouseMove={onMouseMove}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
                 />
               </Suspense>
             </AnimatePresence>
             {magnifier(image?.painting)}
-            <figure className='text-xs leading-5 font-medium flex gap-8 py-4'>
+            <figure className='text-xs leading-5 font-medium flex lg:gap-8 py-4 lg:text-black text-white lg:flex-row flex-col gap-2'>
               <span>{`${image.name}, ${image.year}`}</span>
               <span>{`${image.info}`}</span>
               <span>{`${image.size}`}</span>

@@ -1,5 +1,5 @@
 import { useMagnifier } from 'hooks';
-import { useState } from 'react';
+import { TouchEventHandler, useState } from 'react';
 import { ViewProps } from './type';
 
 export const useView = ({ imageArr, index, setIndex }: ViewProps) => {
@@ -9,6 +9,8 @@ export const useView = ({ imageArr, index, setIndex }: ViewProps) => {
     zoomLevel: 1.5,
   });
   const [direction, setDirection] = useState(1);
+  const [touchPosition, setTouchPosition] = useState<number | null>();
+
   const image = imageArr![index];
 
   const turnRight = () => {
@@ -29,14 +31,40 @@ export const useView = ({ imageArr, index, setIndex }: ViewProps) => {
     setDirection(-1);
   };
 
+  const handleTouchStart: TouchEventHandler<HTMLImageElement> = (e) => {
+    const touchDown = e.touches[0].clientX;
+    setTouchPosition(touchDown);
+  };
+  const handleTouchMove: TouchEventHandler<HTMLImageElement> = (e) => {
+    const touchDown = touchPosition;
+
+    if (touchDown === null) {
+      return;
+    }
+
+    const currentTouch = e.touches[0].clientX;
+    const diff = touchDown && touchDown - currentTouch;
+
+    if (diff && diff > 5) {
+      turnRight();
+    }
+
+    if (diff && diff < -5) {
+      turnLeft();
+    }
+    setTouchPosition(null);
+  };
+
   return {
     image,
-    direction,
     turnLeft,
+    magnifier,
     turnRight,
+    direction,
+    onMouseMove,
     onMouseEnter,
     onMouseLeave,
-    onMouseMove,
-    magnifier,
+    handleTouchMove,
+    handleTouchStart,
   };
 };

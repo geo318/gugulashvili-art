@@ -1,10 +1,13 @@
 import { BrowserRouter } from 'react-router-dom';
 import { AnimatedRoutes } from 'pages/AnimatedRoutes';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 function App() {
   return (
     <BrowserRouter>
-      <AnimatedRoutes />
+      <ParallaxProvider>
+        <AnimatedRoutes />
+      </ParallaxProvider>
     </BrowserRouter>
   );
 }

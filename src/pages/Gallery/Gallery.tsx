@@ -18,13 +18,13 @@ export const Gallery = () => {
           <View index={imageIndex} close={close} setIndex={setImageIndex} />
         )}
       </AnimatePresence>
-      <Layout className='select-none flex flex-col'>
+      <Layout className='select-none flex flex-col px-5 lg:px-0 relative'>
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className='pt-28' onMouseLeave={() => setHovered('')}>
+          <div className='lg:pt-28 pt-10' onMouseLeave={() => setHovered('')}>
             <Slides
               hovered={hovered}
               setHovered={setHovered}
