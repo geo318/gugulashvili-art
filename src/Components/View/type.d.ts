@@ -1,5 +1,7 @@
+import { Image } from 'types';
+
 export interface ViewProps {
-  imageArr?: Images[];
+  imageArr?: Image[];
   index: number;
   close?: () => void;
   setIndex: function;

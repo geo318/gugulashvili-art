@@ -2,7 +2,6 @@ import { ViewProps } from './type';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Arrow } from 'Components/icons';
 import { useView } from './useView';
-import { Suspense } from 'react';
 import { imageArr } from 'assets';
 
 export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
@@ -15,6 +14,7 @@ export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
     onMouseMove,
     onMouseLeave,
     onMouseEnter,
+    handleTouchEnd,
     handleTouchMove,
     handleTouchStart,
   } = useView({
@@ -34,7 +34,7 @@ export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
         onClick={close}
       />
       <motion.div
-        className='fixed z-50 top-28'
+        className='fixed z-50 lg:top-28 top-5'
         initial={{ opacity: 0, scale: 0.3 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
@@ -47,24 +47,23 @@ export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
               custom={direction}
               initial={false}
             >
-              <Suspense fallback='...loading'>
-                <motion.img
-                  src={image?.painting}
-                  className='w-full h-full flex max-h-[75vh]'
-                  initial={{ x: direction > 0 ? 500 : -500, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: direction > 0 ? -500 : 500, opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                  custom={direction}
-                  key={image?.painting}
-                  alt={image?.name}
-                  onMouseEnter={onMouseEnter}
-                  onMouseLeave={onMouseLeave}
-                  onMouseMove={onMouseMove}
-                  onTouchStart={handleTouchStart}
-                  onTouchMove={handleTouchMove}
-                />
-              </Suspense>
+              <motion.img
+                src={image?.painting}
+                className='w-full h-full flex max-h-[75vh]'
+                initial={{ x: direction > 0 ? 500 : -500, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: direction > 0 ? -500 : 500, opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                custom={direction}
+                key={image?.painting}
+                alt={image?.name}
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
+                onMouseMove={onMouseMove}
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+                onTouchMove={handleTouchMove}
+              />
             </AnimatePresence>
             {magnifier(image?.painting)}
             <figure className='text-xs leading-5 font-medium flex lg:gap-8 py-4 lg:text-black text-white lg:flex-row flex-col gap-2'>

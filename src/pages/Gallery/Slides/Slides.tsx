@@ -20,6 +20,9 @@ export const Slides = ({ hovered, setHovered, setImageIndex }: SlideProps) => {
                 setImageIndex(index);
                 setHovered('');
               }}
+              initial={{ opacity: 0, top: '-100vh' }}
+              animate={{ opacity: 1, top: 0 }}
+              transition={{ duration: 0.8 }}
             >
               <img
                 src={images[i.key]}
