@@ -1,6 +1,5 @@
 import { AnimatePresence } from 'framer-motion';
-import { Gallery } from 'pages/Gallery';
-import { Home } from 'pages/Home';
+import { Home, Gallery, Links } from 'pages';
 import { Route, Routes, useLocation } from 'react-router';
 
 export const AnimatedRoutes = () => {
@@ -10,6 +9,7 @@ export const AnimatedRoutes = () => {
       <Routes location={location} key={location.pathname}>
         <Route path='/' element={<Home />} />
         <Route path='/gallery' element={<Gallery />} />
+        <Route path='/links' element={<Links />} />
       </Routes>
     </AnimatePresence>
   );

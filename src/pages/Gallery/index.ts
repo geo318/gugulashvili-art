@@ -1,2 +1,2 @@
 export * from './Gallery';
-export * from './View';
+export * from './Slides';

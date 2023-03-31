@@ -1,17 +1,17 @@
 import { avatar } from 'assets';
-import { Layout, Button } from 'Components';
+import { Layout, Footer, Navigate } from 'Components';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 
 export const Home = () => (
   <Layout className='overflow-hidden'>
     <motion.div
-      className='bg-app-gradient'
+      className='bg-app-gradient h-screen'
       initial={{ opacity: 0, y: '-100vh' }}
       animate={{ opacity: 1, y: '0' }}
+      exit={{ opacity: 0, y: '-100vh' }}
       transition={{ duration: 0.8 }}
     >
-      <Layout className='pt-28 text-txt-green'>
+      <div className='pt-28 text-txt-green flex flex-col h-full'>
         <motion.div
           className='flex items-center justify-center flex-col'
           initial={{ opacity: 0, scale: 0.9 }}
@@ -45,21 +45,9 @@ export const Home = () => (
             comes from my emotions.”
           </p>
         </motion.div>
-        <div className='flex mt-32 justify-end'>
-          <Link
-            to='/gallery'
-            className='mr-16 opacity-50 hover:opacity-80 hover:scale-105 active:scale-95 transition-all duration-300'
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 0.5 }}
-              transition={{ duration: 0.5, delay: 1.5 }}
-            >
-              <Button />
-            </motion.div>
-          </Link>
-        </div>
-      </Layout>
+        <Navigate link='/gallery' />
+        <Footer />
+      </div>
     </motion.div>
   </Layout>
 );

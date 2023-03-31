@@ -1,63 +1,40 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Layout } from 'Components';
-import { images } from 'assets';
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { View } from './View';
+import { Footer, Layout, Navigate, View } from 'Components';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useGallery } from './useGallery';
+import { Slides } from './Slides';
 
 export const Gallery = () => {
-  const { hovered, setHovered, imageIndex, setImageIndex } = useGallery();
+  const { hovered, setHovered, imageIndex, setImageIndex, close } =
+    useGallery();
 
   return (
-    <>
-      {imageIndex && <View images={images} index={imageIndex} />}
-      <motion.div
-        className='bg-app-gradient absolute inset-0'
-        initial={{ opacity: 0, y: '0' }}
-        animate={{ opacity: 1, y: '-100vh' }}
-        transition={{ duration: 0.8 }}
-      />
-      <Layout className='bg-[#E1EBE9]'>
+    <motion.div
+      initial={{ backgroundColor: '#fff' }}
+      animate={{ backgroundColor: '#E1EBE9' }}
+      transition={{ duration: 0.5, delay: 0.8 }}
+    >
+      <AnimatePresence>
+        {imageIndex != null && (
+          <View index={imageIndex} close={close} setIndex={setImageIndex} />
+        )}
+      </AnimatePresence>
+      <Layout className='select-none flex flex-col'>
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 1 }}
+          transition={{ duration: 0.5 }}
         >
-          <Layout>
-            <div onMouseLeave={() => setHovered('')}>
-              <Swiper className='pt-20' slidesPerView={5} grabCursor longSwipes>
-                {images.map((i, index) => (
-                  <SwiperSlide
-                    className={
-                      index % 2 && !hovered
-                        ? 'min-w-[22%]'
-                        : hovered
-                        ? 'min-w-[22%]'
-                        : 'min-w-[18%]'
-                    }
-                    key={index}
-                  >
-                    <div
-                      className={`${
-                        hovered === `${index}`
-                          ? 'active'
-                          : !hovered
-                          ? ''
-                          : 'passive'
-                      } overflow-hidden`}
-                      onMouseOver={() => setHovered(`${index}`)}
-                      onClick={() => setImageIndex(index)}
-                    >
-                      <img src={i.painting} alt='' className='' />
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-          </Layout>
+          <div onMouseLeave={() => setHovered('')}>
+            <Slides
+              hovered={hovered}
+              setHovered={setHovered}
+              setImageIndex={setImageIndex}
+            />
+          </div>
         </motion.div>
+        <Navigate link='/links' />
+        <Footer />
       </Layout>
-    </>
+    </motion.div>
   );
 };
