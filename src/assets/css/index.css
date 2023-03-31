@@ -46,10 +46,25 @@
   object-fit: cover;
 }
 
-.swiper-slide > div {
-  transition: 300ms;
-}
-
 .passive {
   scale: 0.8;
+}
+.swiper-slide > div,
+.heading,
+.arrow,
+.link-item {
+  transition: 0.3s;
+}
+
+.link-item:hover {
+  scale: 1.2;
+}
+
+.link-item:hover .heading {
+  scale: 0.8;
+  transform: translateX(-60px);
+}
+
+.link-item:hover .arrow {
+  scale: 1.4;
 }
