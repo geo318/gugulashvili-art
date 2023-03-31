@@ -13,7 +13,6 @@ export const Navigate = ({ link }: { link: string }) => {
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 0.5 }}
           transition={{ duration: 0.5, delay: 1.5 }}
-          t
         >
           <Button />
         </motion.div>
