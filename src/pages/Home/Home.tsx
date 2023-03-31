@@ -21,13 +21,13 @@ export const Home = () => (
           <h1 className='text-[2rem] leading-[2rem] lg:text-[3.25rem] lg:leading-[3.25rem] font-medium'>
             Zura Gugulashvili
           </h1>
-          <div className='flex mb-auto lg:flex-row flex-col-reverse items-center text-sm gap-8 mt-5 font-normal'>
+          <div className='flex mb-auto lg:flex-row flex-col-reverse items-center text-sm lg:gap-8 gap-3 mt-5 font-normal'>
             <span>Artist</span>
             <span>January 24, 1973</span>
             <span className='underline'>zuragugulashvili73@gmail.com</span>
           </div>
           <motion.div
-            className='w-48 h-192 rounded-full overflow-hidden mt-[3.25rem] hover:cursor-grab active:cursor-grabbing'
+            className='w-48 h-192 rounded-full overflow-hidden lg:my-[3.25rem] my-[2rem] hover:cursor-grab active:cursor-grabbing'
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.8, delay: 1.2 }}
@@ -40,7 +40,7 @@ export const Home = () => (
               className='select-none pointer-events-none'
             />
           </motion.div>
-          <p className='text-lg font-light text-txt-green-lt max-w-xs text-center mt-[3.25rem]'>
+          <p className='text-lg font-light text-txt-green-lt max-w-xs text-center'>
             “My artwork does not come from the process of thinking. It just
             comes from my emotions.”
           </p>
