@@ -17,7 +17,28 @@ import sunset from './sunset.jpg';
 
 import { Image } from 'types';
 
-export const images: Image[] = [
+export const images: Image = {
+  apocalypses: apocalypses,
+  doctorsHands: doctorsHands,
+  fireFlies: fireflies,
+  forLife: forLife,
+  hiroshima: hiroshima,
+  infinity: infinity,
+  krtsanisyPoppies: krtsanisyPoppies,
+  lakeOfTranquility: lakeOfTranquility,
+  myYellow: myYellow,
+  nightOnEarth: nightOnEarth,
+  nurse: nurse,
+  paradiseAppleTree: paradiseAppleTree,
+  rain: rain,
+  spring: spring,
+  summer: summer,
+  sunset: sunset,
+};
+
+export default images;
+
+export const imageArr: Image[] = [
   {
     painting: apocalypses,
     name: 'Apocalypses',
