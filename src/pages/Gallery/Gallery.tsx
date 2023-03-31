@@ -24,7 +24,7 @@ export const Gallery = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div onMouseLeave={() => setHovered('')}>
+          <div className='pt-28' onMouseLeave={() => setHovered('')}>
             <Slides
               hovered={hovered}
               setHovered={setHovered}

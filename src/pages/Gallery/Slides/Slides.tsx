@@ -1,13 +1,12 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SlideProps } from './type';
-import { thumbnails } from 'assets/images/paintings/thumbnails';
 import { slideData } from './data';
 import { images } from 'assets';
 
 export const Slides = ({ hovered, setHovered, setImageIndex }: SlideProps) => {
   return (
     <Swiper
-      className='pt-20'
+      className='pt-28'
       slidesPerView={5}
       grabCursor
       longSwipes
