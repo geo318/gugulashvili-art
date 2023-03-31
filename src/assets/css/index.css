@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  animation: 3s swipe;
+  /* animation: 3s swipe; */
 }
 @keyframes swipe {
   from {

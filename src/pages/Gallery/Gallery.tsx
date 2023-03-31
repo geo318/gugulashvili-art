@@ -8,21 +8,16 @@ export const Gallery = () => {
     useGallery();
 
   return (
-    <motion.div
-      initial={{ backgroundColor: '#fff' }}
-      animate={{ backgroundColor: '#E1EBE9' }}
-      transition={{ duration: 0.5, delay: 0.8 }}
-    >
+    <motion.div>
       <AnimatePresence>
         {imageIndex != null && (
           <View index={imageIndex} close={close} setIndex={setImageIndex} />
         )}
       </AnimatePresence>
-      <Layout className='select-none flex flex-col px-5 lg:px-0 relative'>
+      <Layout className='select-none flex flex-col px-5 lg:px-0 relative overflow-hidden'>
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
         >
           <div className='lg:pt-28 pt-10' onMouseLeave={() => setHovered('')}>
             <Slides

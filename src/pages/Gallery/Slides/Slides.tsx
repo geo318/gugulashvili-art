@@ -20,9 +20,10 @@ export const Slides = ({ hovered, setHovered, setImageIndex }: SlideProps) => {
                 setImageIndex(index);
                 setHovered('');
               }}
-              initial={{ opacity: 0, top: '-100vh' }}
-              animate={{ opacity: 1, top: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, translateY: '100' }}
+              animate={{ opacity: 1, translateY: 0 }}
+              exit={{ opacity: 0, translateY: '100' }}
+              transition={{ duration: 0.5, delay: 0.3 }}
             >
               <img
                 src={images[i.key]}
@@ -33,43 +34,58 @@ export const Slides = ({ hovered, setHovered, setImageIndex }: SlideProps) => {
           ))}
         </motion.div>
       ) : (
-        <Swiper
-          className='pt-28 lg:px-28'
-          slidesPerView={5}
-          grabCursor
-          longSwipes
-          slidesOffsetAfter={800}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5, translateX: '20vw' }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            translateX: 0,
+          }}
+          exit={{ opacity: 0, scale: 0.5, translateX: '20vw' }}
+          transition={{ delay: 0.3, duration: 0.5 }}
         >
-          {slideData.map((i, index) => (
-            <SwiperSlide
-              className={`${
-                index % 2 && !hovered
-                  ? 'lg:min-w-[22%] min-w-full'
-                  : hovered
-                  ? 'lg:min-w-[20%] min-w-full'
-                  : 'lg:min-w-[18%] min-w-full'
-              }`}
-              key={i.name}
-            >
-              <div
-                className={`w-full h-full ${
-                  hovered === `${index}` ? 'active' : !hovered ? '' : 'passive'
-                } overflow-hidden`}
-                onMouseOver={() => setHovered(`${index}`)}
-                onClick={() => {
-                  setImageIndex(index);
-                  setHovered('');
-                }}
+          <Swiper
+            className='pt-28 lg:px-28'
+            slidesPerView={5}
+            grabCursor
+            longSwipes
+            slidesOffsetAfter={800}
+          >
+            {slideData.map((i, index) => (
+              <SwiperSlide
+                className={`${
+                  index % 2 && !hovered
+                    ? 'lg:min-w-[22%] min-w-full'
+                    : hovered
+                    ? 'lg:min-w-[20%] min-w-full'
+                    : 'lg:min-w-[18%] min-w-full'
+                }`}
+                key={i.name}
               >
-                <img
-                  src={images[i.key]}
-                  alt={i.info}
-                  className='w-full h-full aspect-6/5 object-cover'
-                />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+                <div
+                  className={`w-full h-full ${
+                    hovered === `${index}`
+                      ? 'active'
+                      : !hovered
+                      ? ''
+                      : 'passive'
+                  } overflow-hidden`}
+                  onMouseOver={() => setHovered(`${index}`)}
+                  onClick={() => {
+                    setImageIndex(index);
+                    setHovered('');
+                  }}
+                >
+                  <img
+                    src={images[i.key]}
+                    alt={i.info}
+                    className='w-full h-full aspect-6/5 object-cover'
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
       )}
     </>
   );
