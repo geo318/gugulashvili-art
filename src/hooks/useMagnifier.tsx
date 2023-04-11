@@ -10,7 +10,7 @@ export const useMagnifier = ({
   zoomLevel?: number;
 }) => {
   const [[x, y], setXY] = useState([0, 0]);
-  // const [[imgWidth, imgHeight], setSize] = useState([0, 0]); use if images are dynamic
+  const [[imgWidth, imgHeight], setSize] = useState([0, 0]);
   const [showMagnifier, setShowMagnifier] = useState(false);
 
   const onMouseEnter = (e: SyntheticEvent) => {
