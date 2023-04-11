@@ -1,4 +1,4 @@
-import { useToggleBodyScroll } from 'hooks';
+import { useEsc, useToggleBodyScroll } from 'hooks';
 import { useState } from 'react';
 
 export const useGallery = () => {
@@ -7,6 +7,7 @@ export const useGallery = () => {
   useToggleBodyScroll({ toggle: !!imageIndex });
 
   const close = () => setImageIndex(null);
+  useEsc(close);
 
   return { hovered, setHovered, imageIndex, setImageIndex, close };
 };
