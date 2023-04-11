@@ -10,6 +10,7 @@ export const Arrow = ({ left = false }) => {
       <path
         d='M8.77246 16.5641L3.20829 11L8.77246 5.43581'
         stroke='#272525'
+        strokeWidth={3}
         strokeMiterlimit='10'
         strokeLinecap='round'
         strokeLinejoin='round'
@@ -17,6 +18,7 @@ export const Arrow = ({ left = false }) => {
       <path
         d='M18.7915 11L3.364 11'
         stroke='#272525'
+        strokeWidth={3}
         strokeMiterlimit='10'
         strokeLinecap='round'
         strokeLinejoin='round'
@@ -33,6 +35,7 @@ export const Arrow = ({ left = false }) => {
       <path
         d='M13.2275 5.43585L18.7917 11L13.2275 16.5642'
         stroke='#272525'
+        strokeWidth={3}
         strokeMiterlimit='10'
         strokeLinecap='round'
         strokeLinejoin='round'
@@ -40,6 +43,7 @@ export const Arrow = ({ left = false }) => {
       <path
         d='M3.2085 11H18.636'
         stroke='#272525'
+        strokeWidth={3}
         strokeMiterlimit='10'
         strokeLinecap='round'
         strokeLinejoin='round'

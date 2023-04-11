@@ -1,4 +1,4 @@
-import avatar from './avatar.png';
+import avatar from './avatar.webp';
 import print from './print.png';
 export * from './paintings';
 export * from './externals';

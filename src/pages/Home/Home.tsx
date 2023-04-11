@@ -21,11 +21,11 @@ export const Home = () => (
           <h1 className='text-[2rem] leading-[2rem] lg:text-[3.25rem] lg:leading-[3.25rem] font-medium'>
             Zura Gugulashvili
           </h1>
-          <div className='flex mb-auto lg:flex-row flex-col-reverse items-center text-sm lg:gap-8 gap-3 mt-5 font-normal'>
+          {/* <div className='flex mb-auto lg:flex-row flex-col-reverse items-center text-sm lg:gap-8 gap-3 mt-5 font-normal'>
             <span>Artist</span>
             <span>January 24, 1973</span>
             <span className='underline'>zuragugulashvili73@gmail.com</span>
-          </div>
+          </div> */}
           <motion.div
             className='w-48 h-192 rounded-full overflow-hidden lg:my-[3.25rem] my-[2rem] hover:cursor-grab active:cursor-grabbing'
             initial={{ scale: 0.8 }}
@@ -45,7 +45,7 @@ export const Home = () => (
             comes from my emotions.”
           </p>
         </motion.div>
-        <Navigate link='/gallery' />
+        <Navigate link='/gallery' opacity={0.4} />
         <Footer />
       </div>
     </motion.div>

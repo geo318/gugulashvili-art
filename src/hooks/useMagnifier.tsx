@@ -43,7 +43,7 @@ export const useMagnifier = ({
         left: `${x - magnifierWidth / 2}px`,
         border: '1px solid lightgray',
         backgroundImage: `url('${src}')`,
-        backgroundSize: `${imgWidth * zoomLevel}px ${imgHeight * zoomLevel}px`,
+        backgroundSize: `${780 * zoomLevel}px ${560 * zoomLevel}px`,
         backgroundPositionX: `${-x * zoomLevel + magnifierWidth / 2}px`,
         backgroundPositionY: `${-y * zoomLevel + magnifierHeight / 2}px`,
       }}

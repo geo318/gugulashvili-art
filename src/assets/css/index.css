@@ -12,15 +12,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  /* animation: 3s swipe; */
-}
-@keyframes swipe {
-  from {
-    transform: translate3d(100%, 0, 0);
-  }
-  to {
-    transform: translate3d(0, 0, 0);
-  }
+  padding: 20px 0;
 }
 
 .swiper-slide {
@@ -32,11 +24,11 @@
   justify-content: center;
   align-items: center;
   scale: 0.9;
-  transition: 300ms;
+  transition: 450ms ease-in-out;
 }
 
 .swiper-slide:hover {
-  scale: 1.1;
+  scale: 1.15;
 }
 
 .swiper-slide img {
@@ -47,8 +39,9 @@
 }
 
 .passive {
-  scale: 0.8;
+  scale: 0.9;
 }
+
 .swiper-slide > div,
 .heading,
 .arrow,

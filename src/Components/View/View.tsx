@@ -70,7 +70,7 @@ export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
               <span>{`${image.name}, ${image.year}`}</span>
               <span>{`${image.info}`}</span>
               <span>{`${image.size}`}</span>
-              <div className='ml-auto flex gap-3'>
+              <div className='ml-auto flex gap-5'>
                 <button className='pl-2' onClick={turnLeft}>
                   <Arrow left />
                 </button>

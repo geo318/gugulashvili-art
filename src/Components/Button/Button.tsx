@@ -6,7 +6,7 @@ export const Button = () => {
       <img
         src={print}
         alt=''
-        className='select-none pointer-events-none lg:w-auto w-20'
+        className='select-none pointer-events-none lg:w-24 w-20 -rotate-22'
       />
     </button>
   );
