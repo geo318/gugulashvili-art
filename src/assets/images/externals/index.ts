@@ -1,16 +1,13 @@
-import artMine from './artmine.png';
-import agora from './agora.png';
-import avatar from './avatar.png';
 import ZuraGugulashvili from './ZuraGugulashvili.jpg';
-import Paint from './Paint.png';
+import Paint from './Paint.jpg';
 
 export const externals = [
-  {
-    heading: artMine,
-    logo: agora,
-    avatar: avatar,
-    link: 'https://art-mine.com/artists/zura-gugulashvili/',
-  },
+  // {
+  //   heading: artMine,
+  //   logo: agora,
+  //   avatar: avatar,
+  //   link: 'https://art-mine.com/artists/zura-gugulashvili/',
+  // },
   {
     heading: null,
     logo: null,

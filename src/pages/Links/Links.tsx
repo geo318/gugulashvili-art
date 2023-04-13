@@ -14,14 +14,7 @@ export const Links = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className='flex flex-col min-h-screen lg:pt-32 pt-10'
         >
-          <div className='flex w-full items-center justify-center mb-10'>
-            <div className='flex mb-auto lg:flex-row flex-col-reverse items-center text-sm lg:gap-8 gap-3 mt-5 font-normal'>
-              <span className='underline'>
-                email: zuragugulashvili73@gmail.com
-              </span>
-            </div>
-          </div>
-          <div className='mb-10 grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 lg:px-16 px-4 relative min-h-full'>
+          <div className='mb-10 grid xl:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-10 lg:px-16 px-4 relative min-h-full'>
             {externals.map((e, i) => {
               return (
                 <Link key={i} to={e.link} target='_blank'>
@@ -31,7 +24,7 @@ export const Links = () => {
                     } cursor-pointer link-item`}
                   >
                     <div className='p-8 relative'>
-                      {e.logo ? (
+                      {e.logo && e.heading ? (
                         <>
                           <div className=' mb-8 relative pt-[25%]'>
                             <div className='absolute top-0 min-w-[160%] heading'>
@@ -70,7 +63,7 @@ export const Links = () => {
                             <img
                               src={e.avatar}
                               alt='agora-logo'
-                              className='max-h-full max-w-[65%] aspect-square object-contain'
+                              className='max-h-full aspect-square object-contain max-w-md'
                             />
                           </div>
                         </div>
@@ -82,6 +75,22 @@ export const Links = () => {
             })}
           </div>
           <Navigate link='/' />
+          <div className='flex w-full items-center justify-center '>
+            <div className='flex mb-auto lg:flex-row flex-col-reverse items-center text-sm lg:gap-8 gap-3 mt-5 font-normal'>
+              <a
+                href='mailto:zuragugulashvili73@gmail.com'
+                className='underline text-gray-700 hover:text-black'
+              >
+                Email: zuragugulashvili73@gmail.com
+              </a>
+              <a
+                className='underline text-gray-700 hover:text-black'
+                href='https://wa.me/995599988525'
+              >
+                WhatsApp: +995 599 988 525
+              </a>
+            </div>
+          </div>
           <Footer />
         </motion.div>
       </Layout>
