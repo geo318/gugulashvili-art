@@ -23,13 +23,14 @@ export const Home = () => (
           </h1>
 
           <motion.div
-            className='w-48 h-192 rounded-full overflow-hidden lg:my-[3.25rem] my-[2rem] hover:cursor-grab active:cursor-grabbing'
+            className='relative w-48 h-192 rounded-full overflow-hidden lg:my-[3.25rem] my-[2rem] hover:cursor-grab active:cursor-grabbing'
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.8, delay: 1.2 }}
             drag
             dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
           >
+            <div className='absolute inset-0 bg-green-500 bg-opacity-10' />
             <img
               src={avatar}
               alt=''
