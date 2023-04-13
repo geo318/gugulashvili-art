@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Arrow } from 'Components/icons';
 import { useView } from './useView';
 import { imageArr } from 'assets';
-import { useEsc } from 'hooks';
 
 export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
   const {
