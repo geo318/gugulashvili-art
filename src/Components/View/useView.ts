@@ -73,6 +73,7 @@ export const useView = ({ imageArr, index, setIndex }: ViewProps) => {
 
   return {
     image,
+    isMobile,
     turnLeft,
     magnifier,
     turnRight,

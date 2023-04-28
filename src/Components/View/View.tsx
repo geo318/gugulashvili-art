@@ -2,13 +2,14 @@ import { ViewProps } from './type';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Arrow } from 'Components/icons';
 import { useView } from './useView';
-import { imageArr, images } from 'assets';
+import { imageArr, images, thumbnails } from 'assets';
 
 export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
   const {
     image,
-    direction,
+    isMobile,
     turnLeft,
+    direction,
     turnRight,
     magnifier,
     onMouseMove,
@@ -40,7 +41,7 @@ export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
         transition={{ duration: 0.5, delay: 0.1 }}
         exit={{ opacity: 0, scale: 0.5 }}
       >
-        <div className='h-full w-full max-w-[50rem]'>
+        <div className='h-full w-full max-w-[50rem] mx-auto'>
           <div className='px-2 pt-2 lg:bg-white'>
             <AnimatePresence
               mode='popLayout'
@@ -48,8 +49,8 @@ export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
               initial={false}
             >
               <motion.img
-                src={images[image?.key]}
-                className='w-full h-full flex max-h-[75vh]'
+                src={!isMobile ? images[image?.key] : thumbnails[image?.key]}
+                className='w-full h-full flex max-h-[75vh] min-h-[40vh]'
                 initial={{ x: direction > 0 ? 500 : -500, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: direction > 0 ? -500 : 500, opacity: 0 }}
@@ -63,14 +64,15 @@ export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
                 onTouchMove={handleTouchMove}
+                loading='lazy'
               />
             </AnimatePresence>
-            {magnifier(image?.painting)}
-            <figure className='text-xs leading-5 font-medium flex lg:gap-8 py-4 lg:text-black text-white lg:flex-row flex-col gap-2'>
+            {magnifier(!isMobile ? images[image?.key] : thumbnails[image?.key])}
+            <figure className='w-full text-xs leading-5 font-medium flex lg:gap-8 py-4 lg:text-black text-white lg:flex-row flex-col gap-2'>
               <span>{`${image.name}, ${image.year}`}</span>
               <span>{`${image.info}`}</span>
               <span>{`${image.size}`}</span>
-              <div className='ml-auto flex gap-5'>
+              <div className='ml-auto lg:flex gap-5 hidden'>
                 <button className='pl-2' onClick={turnLeft}>
                   <Arrow left />
                 </button>
