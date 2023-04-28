@@ -18,12 +18,8 @@ export const Home = () => (
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <h1 className='text-[2rem] leading-[2rem] lg:text-[3.25rem] lg:leading-[3.25rem] font-medium'>
-            Zura Gugulashvili
-          </h1>
-
           <motion.div
-            className='relative w-48 h-192 rounded-full overflow-hidden lg:my-[3.25rem] my-[2rem] hover:cursor-grab active:cursor-grabbing'
+            className='relative w-48 h-192 rounded-full overflow-hidden lg:mt-[3.25rem] lg:mb-[2rem] my-[2rem] hover:cursor-grab active:cursor-grabbing'
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.8, delay: 1.2 }}
@@ -37,6 +33,9 @@ export const Home = () => (
               className='select-none pointer-events-none'
             />
           </motion.div>
+          <h1 className='text-[2rem] leading-[2rem] lg:text-[3.25rem] lg:leading-[3.25rem] font-medium mb-10'>
+            Zura Gugulashvili
+          </h1>
           <p className='text-lg font-light text-txt-green-lt max-w-xs text-center'>
             “My artwork does not come from the process of thinking. It just
             comes from my emotions.”

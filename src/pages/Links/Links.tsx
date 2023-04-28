@@ -81,7 +81,7 @@ export const Links = () => {
                 href='mailto:zuragugulashvili73@gmail.com'
                 className='underline text-gray-700 hover:text-black'
               >
-                Email: zuragugulashvili73@gmail.com
+                Email: zuragugu73@gmail.com
               </a>
               <a
                 className='underline text-gray-700 hover:text-black'

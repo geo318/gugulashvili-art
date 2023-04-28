@@ -1,7 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SlideProps } from './type';
-import { slideData } from './data';
-import { images } from 'assets';
+import { thumbnails, thumbArr as slideData } from 'assets';
 import { motion } from 'framer-motion';
 import { useScreenWidth } from 'hooks';
 
@@ -26,7 +25,7 @@ export const Slides = ({ hovered, setHovered, setImageIndex }: SlideProps) => {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <img
-                src={images[i.key]}
+                src={thumbnails[i.key]}
                 alt={i.info}
                 className='w-full h-full max-w-full object-fit relative'
               />
@@ -77,7 +76,7 @@ export const Slides = ({ hovered, setHovered, setImageIndex }: SlideProps) => {
                   }}
                 >
                   <img
-                    src={images[i.key]}
+                    src={thumbnails[i.key]}
                     alt={i.info}
                     className='w-full h-full aspect-6/5 object-cover'
                   />

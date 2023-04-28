@@ -2,7 +2,7 @@ import { ViewProps } from './type';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Arrow } from 'Components/icons';
 import { useView } from './useView';
-import { imageArr } from 'assets';
+import { imageArr, images } from 'assets';
 
 export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
   const {
@@ -48,14 +48,14 @@ export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
               initial={false}
             >
               <motion.img
-                src={image?.painting}
+                src={images[image?.key]}
                 className='w-full h-full flex max-h-[75vh]'
                 initial={{ x: direction > 0 ? 500 : -500, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: direction > 0 ? -500 : 500, opacity: 0 }}
                 transition={{ duration: 0.5 }}
                 custom={direction}
-                key={image?.painting}
+                key={image?.name}
                 alt={image?.name}
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
