@@ -50,7 +50,7 @@ export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
             >
               <motion.img
                 src={!isMobile ? images[image?.key] : thumbnails[image?.key]}
-                className='w-full h-full flex max-h-[75vh] min-h-[40vh]'
+                className='w-full h-full flex max-h-[75vh] min-h-[40vh] object-cover'
                 initial={{ x: direction > 0 ? 500 : -500, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: direction > 0 ? -500 : 500, opacity: 0 }}

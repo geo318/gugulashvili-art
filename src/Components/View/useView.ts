@@ -1,6 +1,7 @@
 import { useMagnifier, useScreenWidth } from 'hooks';
 import { TouchEventHandler, useCallback, useEffect, useState } from 'react';
 import { ViewProps } from './type';
+import { images } from 'assets';
 
 export const useView = ({ imageArr, index, setIndex }: ViewProps) => {
   const isMobile = useScreenWidth();
@@ -14,6 +15,7 @@ export const useView = ({ imageArr, index, setIndex }: ViewProps) => {
   const [touchEnd, setTouchEnd] = useState(false);
   const [diff, setDiff] = useState(0);
   const image = imageArr![index];
+  const [preloadImages, setPreloadImages] = useState<any>([]);
 
   const turnRight = useCallback(() => {
     if (index < imageArr!.length - 1) {

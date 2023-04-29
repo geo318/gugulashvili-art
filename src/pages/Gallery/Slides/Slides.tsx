@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SlideProps } from './type';
-import { thumbnails, thumbArr as slideData } from 'assets';
+import { thumbnails, imageArr as slideData, imageArr, images } from 'assets';
 import { motion } from 'framer-motion';
 import { useScreenWidth } from 'hooks';
 
@@ -59,7 +59,7 @@ export const Slides = ({ hovered, setHovered, setImageIndex }: SlideProps) => {
                     ? 'lg:min-w-[20%] min-w-full'
                     : 'lg:min-w-[18%] min-w-full'
                 }`}
-                key={i.name}
+                key={`${i.name} ${i.size}`}
               >
                 <div
                   className={`w-full h-full ${
@@ -86,6 +86,18 @@ export const Slides = ({ hovered, setHovered, setImageIndex }: SlideProps) => {
           </Swiper>
         </motion.div>
       )}
+      <div className='hidden'>
+        {imageArr.map((i) => (
+          <img
+            src={images[i.key]}
+            alt='images.name'
+            key={`${i.key}-pre`}
+            role='presentation'
+            loading='lazy'
+            decoding='async'
+          />
+        ))}
+      </div>
     </>
   );
 };
