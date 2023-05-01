@@ -1,7 +1,6 @@
 import { AnimatePresence } from 'framer-motion';
 import { Suspense, lazy } from 'react';
 import { Route, Routes, useLocation } from 'react-router';
-
 const Home = lazy(() => import('pages/Home/Home'));
 const Gallery = lazy(() => import('pages/Gallery/Gallery'));
 const Links = lazy(() => import('pages/Links/Links'));

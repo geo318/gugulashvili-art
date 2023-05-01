@@ -86,3 +86,5 @@ export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
     </div>
   );
 };
+
+export default View;

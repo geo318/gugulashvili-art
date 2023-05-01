@@ -27,7 +27,7 @@ export const Slides = ({ hovered, setHovered, setImageIndex }: SlideProps) => {
               <img
                 src={thumbnails[i.key]}
                 alt={i.info}
-                className='w-full h-full max-w-full object-fit relative'
+                className='w-full max-w-full object-fit relative h-full'
               />
             </motion.div>
           ))}
@@ -44,7 +44,7 @@ export const Slides = ({ hovered, setHovered, setImageIndex }: SlideProps) => {
           transition={{ delay: 0.3, duration: 0.5 }}
         >
           <Swiper
-            className='pt-28 lg:px-28'
+            className='pt-0 lg:px-28'
             slidesPerView={5}
             grabCursor
             longSwipes
@@ -78,7 +78,7 @@ export const Slides = ({ hovered, setHovered, setImageIndex }: SlideProps) => {
                   <img
                     src={thumbnails[i.key]}
                     alt={i.info}
-                    className='w-full h-full aspect-6/5 object-cover'
+                    className='w-full h-full object-cover'
                   />
                 </div>
               </SwiperSlide>
@@ -101,3 +101,5 @@ export const Slides = ({ hovered, setHovered, setImageIndex }: SlideProps) => {
     </>
   );
 };
+
+export default Slides;

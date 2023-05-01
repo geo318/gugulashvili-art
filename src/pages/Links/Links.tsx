@@ -63,7 +63,7 @@ export const Links = () => {
                             <img
                               src={e.avatar}
                               alt='agora-logo'
-                              className='max-h-full aspect-square object-contain max-w-md'
+                              className='h-full w-full aspect-square object-contain max-w-[23vw] max-h-[23vw]'
                             />
                           </div>
                         </div>
@@ -97,3 +97,5 @@ export const Links = () => {
     </motion.div>
   );
 };
+
+export default Links;
