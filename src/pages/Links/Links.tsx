@@ -63,7 +63,7 @@ export const Links = () => {
                             <img
                               src={e.avatar}
                               alt='agora-logo'
-                              className='h-full w-full aspect-square object-contain max-w-[23vw] max-h-[23vw]'
+                              className='h-full w-full aspect-square object-contain lg:max-w-[23vw] lg:max-h-[23vw]'
                             />
                           </div>
                         </div>
