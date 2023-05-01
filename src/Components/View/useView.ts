@@ -1,19 +1,33 @@
 import { useMagnifier, useScreenWidth } from 'hooks';
-import { TouchEventHandler, useCallback, useEffect, useState } from 'react';
+import {
+  TouchEventHandler,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { ViewProps } from './type';
 
 export const useView = ({ imageArr, index, setIndex }: ViewProps) => {
   const isMobile = useScreenWidth();
-  const { onMouseEnter, onMouseLeave, onMouseMove, magnifier } = useMagnifier({
+  const image = imageArr![index];
+  const ratio: number = image.size
+    .split('x')
+    .map(parseFloat)
+    .reduce((h: number, w: number) => h / w);
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  const { onMouseLeave, onMouseMove, magnifier } = useMagnifier({
     magnifierHeight: 200,
     magnifierWidth: 200,
     zoomLevel: 1.5,
+    width: ref.current?.clientWidth,
+    ratio,
   });
   const [direction, setDirection] = useState(1);
   const [touchPosition, setTouchPosition] = useState<number | null>();
   const [touchEnd, setTouchEnd] = useState(false);
   const [diff, setDiff] = useState(0);
-  const image = imageArr![index];
 
   const turnRight = useCallback(() => {
     if (index < imageArr!.length - 1) {
@@ -35,7 +49,6 @@ export const useView = ({ imageArr, index, setIndex }: ViewProps) => {
 
   const handleTouchEnd: TouchEventHandler<HTMLImageElement> = () => {
     setTouchEnd(true);
-    console.log('ended');
   };
 
   const handleTouchStart: TouchEventHandler<HTMLImageElement> = (e) => {
@@ -72,6 +85,7 @@ export const useView = ({ imageArr, index, setIndex }: ViewProps) => {
   }, [diff, touchEnd, turnLeft, turnRight]);
 
   return {
+    ref,
     image,
     isMobile,
     turnLeft,
@@ -79,7 +93,6 @@ export const useView = ({ imageArr, index, setIndex }: ViewProps) => {
     turnRight,
     direction,
     onMouseMove,
-    onMouseEnter,
     onMouseLeave,
     handleTouchEnd,
     handleTouchMove,

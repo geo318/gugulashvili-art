@@ -4,20 +4,11 @@ export const useMagnifier = ({
   magnifierHeight = 100,
   magnifierWidth = 100,
   zoomLevel = 1.5,
-}: {
-  magnifierHeight?: number;
-  magnifierWidth?: number;
-  zoomLevel?: number;
+  width = 800,
+  ratio = 1,
 }) => {
   const [[x, y], setXY] = useState([0, 0]);
-  const [[imgWidth, imgHeight], setSize] = useState([0, 0]);
   const [showMagnifier, setShowMagnifier] = useState(false);
-
-  const onMouseEnter = (e: SyntheticEvent) => {
-    const elem = e.currentTarget;
-    const { width, height } = elem?.getBoundingClientRect();
-    setSize([width, height]);
-  };
 
   const onMouseLeave = () => {
     setShowMagnifier(false);
@@ -43,12 +34,12 @@ export const useMagnifier = ({
         left: `${x - magnifierWidth / 2}px`,
         border: '1px solid lightgray',
         backgroundImage: `url('${src}')`,
-        backgroundSize: `${780 * zoomLevel}px ${560 * zoomLevel}px`,
+        backgroundSize: `${width * zoomLevel}px ${width * ratio * zoomLevel}px`,
         backgroundPositionX: `${-x * zoomLevel + magnifierWidth / 2}px`,
         backgroundPositionY: `${-y * zoomLevel + magnifierHeight / 2}px`,
       }}
     />
   );
 
-  return { onMouseEnter, onMouseLeave, onMouseMove, magnifier };
+  return { onMouseLeave, onMouseMove, magnifier };
 };

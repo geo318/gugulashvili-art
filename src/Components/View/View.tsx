@@ -1,11 +1,12 @@
 import { ViewProps } from './type';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Arrow } from 'Components/icons';
+import { Arrow } from 'Components';
 import { useView } from './useView';
 import { imageArr, images, thumbnails } from 'assets';
 
 export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
   const {
+    ref,
     image,
     isMobile,
     turnLeft,
@@ -14,7 +15,6 @@ export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
     magnifier,
     onMouseMove,
     onMouseLeave,
-    onMouseEnter,
     handleTouchEnd,
     handleTouchMove,
     handleTouchStart,
@@ -42,7 +42,7 @@ export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
         exit={{ opacity: 0, scale: 0.5 }}
       >
         <div className='h-full w-full max-w-[50rem] mx-auto'>
-          <div className='px-2 pt-2 lg:bg-white'>
+          <div className='px-2 pt-2 lg:bg-white' ref={ref}>
             <AnimatePresence
               mode='popLayout'
               custom={direction}
@@ -58,7 +58,6 @@ export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
                 custom={direction}
                 key={image?.name}
                 alt={image?.name}
-                onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
                 onMouseMove={onMouseMove}
                 onTouchStart={handleTouchStart}
