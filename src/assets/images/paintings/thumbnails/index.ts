@@ -20,13 +20,11 @@ import img3 from './3.webp';
 import img4 from './4.webp';
 import img5 from './5.webp';
 import img6 from './6.webp';
-import img7 from './7.webp';
 import img8 from './8.webp';
 import img9 from './9.webp';
 import img10 from './10.webp';
 import img11 from './11.webp';
 import img12 from './12.webp';
-import img13 from './13.webp';
 import img14 from './14.webp';
 import img15 from './15.webp';
 import img16 from './16.webp';
@@ -44,6 +42,10 @@ import img27 from './27.webp';
 import img28 from './28.webp';
 import img29 from './29.webp';
 import img30 from './30.webp';
+import img31 from './31.webp';
+import img32 from './32.webp';
+import img33 from './33.webp';
+import img34 from './34.webp';
 import { Image } from 'types';
 
 export const thumbnails: Image = {
@@ -91,6 +93,10 @@ export const thumbnails: Image = {
   img28: img28,
   img29: img29,
   img30: img30,
+  img31: img31,
+  img32: img32,
+  img33: img33,
+  img34: img34,
 };
 
 export default thumbnails;

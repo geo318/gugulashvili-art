@@ -42,6 +42,10 @@ import img27 from './27.webp';
 import img28 from './28.webp';
 import img29 from './29.webp';
 import img30 from './30.webp';
+import img31 from './31.webp';
+import img32 from './32.webp';
+import img33 from './33.webp';
+import img34 from './34.webp';
 import { Image } from 'types';
 
 export * from './thumbnails';
@@ -90,6 +94,10 @@ export const images: Image = {
   img28: img28,
   img29: img29,
   img30: img30,
+  img31: img31,
+  img32: img32,
+  img33: img33,
+  img34: img34,
 };
 
 export default images;
@@ -420,7 +428,7 @@ export const imageArr: Image[] = [
     name: 'Alfonsina y el mar',
     info: 'Watercolor on paper',
     year: 2018,
-    size: '9.4" x 7,4"',
+    size: '9.4" x 7.4"',
     key: 'img29',
   },
   {
@@ -428,7 +436,39 @@ export const imageArr: Image[] = [
     name: 'Paradise Apple Tree',
     info: 'Watercolor on paper',
     year: 2018,
-    size: '9.4" x 7,4"',
+    size: '9.4" x 7.4"',
     key: 'img30',
+  },
+  {
+    painting: img31,
+    name: 'Sunflowers',
+    info: 'Watercolor on paper',
+    year: 2015,
+    size: '14.1" x 18.8"',
+    key: 'img31',
+  },
+  {
+    painting: img32,
+    name: 'Poppies',
+    info: 'Watercolor on paper',
+    year: 2022,
+    size: '32.2" x 35"',
+    key: 'img32',
+  },
+  {
+    painting: img33,
+    name: 'The lake of Monet',
+    info: 'Watercolor on paper',
+    year: 2022,
+    size: '32" x 39.9"',
+    key: 'img33',
+  },
+  {
+    painting: img34,
+    name: 'Plea',
+    info: 'Watercolor on paper',
+    year: 2020,
+    size: '29.5" x 41.3"',
+    key: 'img34',
   },
 ];
