@@ -2,6 +2,7 @@ import { ArrowLink, Footer, Layout, Navigate } from 'Components';
 import { motion } from 'framer-motion';
 import { externals } from 'assets';
 import { Link } from 'react-router-dom';
+import ReactPlayer from 'react-player';
 
 export const Links = () => {
   return (
@@ -14,7 +15,14 @@ export const Links = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className='flex flex-col min-h-screen lg:pt-32 pt-10'
         >
-          <div className='mb-10 grid xl:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-10 lg:px-16 px-4 relative min-h-full'>
+          <div className='mb-10 grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 lg:px-16 px-4 relative min-h-full'>
+            <div className='w-full h-full flex justify-center items-center'>
+              <ReactPlayer
+                url='https://vimeo.com/823710805'
+                controls
+                width={'100%'}
+              />
+            </div>
             {externals.map((e, i) => {
               return (
                 <Link key={i} to={e.link} target='_blank'>
