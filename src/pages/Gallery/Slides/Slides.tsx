@@ -25,7 +25,7 @@ export const Slides = ({ hovered, setHovered, setImageIndex }: SlideProps) => {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <img
-                src={thumbnails[i.key]}
+                src={images[i.key]}
                 alt={i.info}
                 className='w-full max-w-full object-fit relative h-full'
               />
