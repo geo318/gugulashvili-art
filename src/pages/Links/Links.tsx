@@ -3,8 +3,18 @@ import { motion } from 'framer-motion';
 import { externals } from 'assets';
 import { Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
+import { useState } from 'react';
+import { Spinner } from 'Components/Spinner';
 
 export const Links = () => {
+  const [isPlayerLoading, setIsPlayerLoading] = useState<boolean>(true);
+  const handleReady = () => {
+    setIsPlayerLoading(false);
+  };
+
+  const handleBuffer = () => {
+    setIsPlayerLoading(true);
+  };
   return (
     <motion.div>
       <Layout className='select-none flex flex-col min-h-full'>
@@ -12,16 +22,27 @@ export const Links = () => {
           initial={{ opacity: 0, scale: 0.85, translateX: '-20vw' }}
           animate={{ opacity: 1, scale: 1, translateX: 0 }}
           exit={{ opacity: 0, scale: 0.85, translateX: '-20vw' }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 1, delay: 0.3 }}
           className='flex flex-col min-h-screen lg:pt-32 pt-10'
         >
-          <div className='mb-10 grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 lg:px-16 px-4 relative min-h-full'>
-            <div className='w-full h-full flex justify-center items-center'>
-              <ReactPlayer
-                url='https://vimeo.com/823710805'
-                controls
-                width={'100%'}
-              />
+          <div className='mb-10 grid xl:grid-cols-5 sm:grid-cols-2 grid-cols-1 gap-2 lg:px-16 px-4 relative min-h-full'>
+            <div className='flex w-full justify-center items-center'>
+              {isPlayerLoading && <Spinner />}
+              <div
+                className={`w-full h-full justify-center items-center aspect-6/5  ${
+                  isPlayerLoading ? 'hidden' : 'flex'
+                }`}
+              >
+                <ReactPlayer
+                  url='https://vimeo.com/823710805'
+                  controls
+                  width={'100%'}
+                  height={'60%'}
+                  style={{ aspectRatio: '6/5' }}
+                  onReady={handleReady}
+                  onBuffer={handleBuffer}
+                />
+              </div>
             </div>
             {externals.map((e, i) => {
               return (
