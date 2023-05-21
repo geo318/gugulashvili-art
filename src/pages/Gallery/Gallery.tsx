@@ -2,6 +2,7 @@ import { Footer, Layout, Navigate } from 'Components';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useGallery } from './useGallery';
 import { Suspense, lazy } from 'react';
+import { images } from 'assets';
 const View = lazy(() => import('Components/View/View'));
 const Slides = lazy(() => import('pages/Gallery/Slides/Slides'));
 
@@ -11,6 +12,14 @@ export const Gallery = () => {
 
   return (
     <motion.div>
+      <div className='fixed inset-0 bg-gradient-to-r bg-white bg-opacity-90'>
+        <img
+          src={images.doctorsHands}
+          alt='background'
+          className='object-cover w-screen h-screen scale-125 opacity-10'
+        />
+        <div className='bg-black bg-opacity-5 inset-0 absolute'></div>
+      </div>
       <AnimatePresence>
         {imageIndex != null && (
           <Suspense>
