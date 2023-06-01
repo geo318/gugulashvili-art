@@ -1,8 +1,8 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { SlideProps } from './type';
 import { thumbnails, imageArr as slideData, imageArr, images } from 'assets';
 import { motion } from 'framer-motion';
 import { useScreenWidth } from 'hooks';
+import { SlideProps } from './type';
 
 export const Slides = ({ hovered, setHovered, setImageIndex }: SlideProps) => {
   const isMobile = useScreenWidth();

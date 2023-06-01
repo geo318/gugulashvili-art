@@ -24,7 +24,12 @@ export const Home = () => (
             animate={{ scale: 1 }}
             transition={{ duration: 0.8, delay: 1.2 }}
             drag
-            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+            dragConstraints={{
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: 0,
+            }}
           >
             <div className='absolute inset-0 bg-green-500 bg-opacity-10' />
             <img

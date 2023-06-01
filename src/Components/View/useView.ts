@@ -80,7 +80,6 @@ export const useView = ({ imageArr, index, setIndex }: ViewProps) => {
       turnLeft();
       setTouchPosition(null);
       setDiff(0);
-      return;
     }
   }, [diff, touchEnd, turnLeft, turnRight]);
 

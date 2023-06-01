@@ -9,5 +9,11 @@ export const useGallery = () => {
   const close = () => setImageIndex(null);
   useEsc(close);
 
-  return { hovered, setHovered, imageIndex, setImageIndex, close };
+  return {
+    hovered,
+    setHovered,
+    imageIndex,
+    setImageIndex,
+    close,
+  };
 };

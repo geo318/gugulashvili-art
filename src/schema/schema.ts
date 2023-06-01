@@ -1,0 +1,47 @@
+import { uploadSchemaDefaults } from 'config';
+import z from 'zod';
+
+const MAX_SIZE = 2000000;
+const MIME_TYPES = ['image/jpg', 'image/jpeg', 'image/png', 'image/webp'];
+
+export const uploadSchema = z
+  .object({
+    name: z
+      .string()
+      .nonempty('image name is empty')
+      .min(3, 'image name is too short')
+      .max(50, 'image name is too long'),
+    description: z
+      .string()
+      .nonempty('shouldn`t be empty')
+      .min(10, 'description is too short')
+      .max(100, 'description is too long')
+      .default(uploadSchemaDefaults.description),
+    size: z
+      .string()
+      .nonempty('shouldn`t be empty')
+      .min(3, 'size is too short')
+      .max(50, 'size is too long')
+      .default(uploadSchemaDefaults.size),
+    year: z.coerce
+      .number()
+      .positive('should be more then 0')
+      .min(1900, 'should be more then 1900')
+      .max(
+        new Date().getFullYear(),
+        `shouldn't be more then ${new Date().getFullYear()}`
+      )
+      .default(uploadSchemaDefaults.year),
+    img: z
+      .instanceof(FileList)
+      .refine((file) => file.length, 'please, select an image')
+      .refine((file) => file[0]?.size <= MAX_SIZE, 'image is too big')
+      .refine(
+        (file) => MIME_TYPES.includes(file[0]?.type),
+        'incorrect file type'
+      ),
+  })
+  .transform((data) => ({
+    ...data,
+    img: data.img[0],
+  }));

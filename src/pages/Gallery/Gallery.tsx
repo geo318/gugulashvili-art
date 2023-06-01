@@ -1,8 +1,9 @@
 import { Footer, Layout, Navigate } from 'Components';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useGallery } from './useGallery';
 import { Suspense, lazy } from 'react';
 import { images } from 'assets';
+import { useGallery } from './useGallery';
+
 const View = lazy(() => import('Components/View/View'));
 const Slides = lazy(() => import('pages/Gallery/Slides/Slides'));
 

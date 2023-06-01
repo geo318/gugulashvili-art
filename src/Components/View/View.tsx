@@ -1,8 +1,8 @@
-import { ViewProps } from './type';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Arrow } from 'Components';
-import { useView } from './useView';
 import { imageArr, images, thumbnails } from 'assets';
+import { useView } from './useView';
+import { ViewProps } from './type';
 
 export const View: React.FC<ViewProps> = ({ index, close, setIndex }) => {
   const {

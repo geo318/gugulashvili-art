@@ -4,3 +4,4 @@ export * from './icons';
 export * from './Footer';
 export * from './View';
 export * from './Navigate';
+export * from './Form';

@@ -1,5 +1,5 @@
-export const Arrow = ({ left = false }) => {
-  return left ? (
+export const Arrow = ({ left = false }) =>
+  left ? (
     <svg
       width='22'
       height='22'
@@ -50,4 +50,3 @@ export const Arrow = ({ left = false }) => {
       />
     </svg>
   );
-};

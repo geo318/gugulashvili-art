@@ -44,64 +44,62 @@ export const Links = () => {
                 />
               </div>
             </div>
-            {externals.map((e, i) => {
-              return (
-                <Link key={i} to={e.link} target='_blank'>
-                  <div
-                    className={`flex flex-col ${
-                      !e.logo ? '' : 'mr-[30%] bg-[#F0F0F0]'
-                    } cursor-pointer link-item`}
-                  >
-                    <div className='p-8 relative'>
-                      {e.logo && e.heading ? (
-                        <>
-                          <div className=' mb-8 relative pt-[25%]'>
-                            <div className='absolute top-0 min-w-[160%] heading'>
-                              <img
-                                src={e.heading}
-                                alt='art-mine'
-                                className='h-full w-full'
-                              />
-                            </div>
-                          </div>
-                          <div className='flex mt-auto align-middle justify-center relative'>
-                            <div className='w-1/2'>
-                              <img
-                                src={e.avatar}
-                                alt='avatar'
-                                className='w-full h-full'
-                              />
-                            </div>
-                            <div className='aspect-square flex items-center w-1/2'>
-                              <div className='min-w-full flex pl-8 justify-center'>
-                                <img
-                                  src={e.logo}
-                                  alt='agora-logo'
-                                  className='w-full maw-h-full max-w-[5rem]'
-                                />
-                              </div>
-                            </div>
-                            <div className='absolute bottom-0 -right-16 arrow'>
-                              <ArrowLink />
-                            </div>
-                          </div>
-                        </>
-                      ) : (
-                        <div className='flex mt-auto align-middle justify-center relative'>
-                          <div className=''>
+            {externals.map((e, i) => (
+              <Link key={i} to={e.link} target='_blank'>
+                <div
+                  className={`flex flex-col ${
+                    !e.logo ? '' : 'mr-[30%] bg-[#F0F0F0]'
+                  } cursor-pointer link-item`}
+                >
+                  <div className='p-8 relative'>
+                    {e.logo && e.heading ? (
+                      <>
+                        <div className=' mb-8 relative pt-[25%]'>
+                          <div className='absolute top-0 min-w-[160%] heading'>
                             <img
-                              src={e.avatar}
-                              alt='agora-logo'
-                              className='h-full w-full aspect-square object-contain lg:max-w-[23vw] lg:max-h-[23vw]'
+                              src={e.heading}
+                              alt='art-mine'
+                              className='h-full w-full'
                             />
                           </div>
                         </div>
-                      )}
-                    </div>
+                        <div className='flex mt-auto align-middle justify-center relative'>
+                          <div className='w-1/2'>
+                            <img
+                              src={e.avatar}
+                              alt='avatar'
+                              className='w-full h-full'
+                            />
+                          </div>
+                          <div className='aspect-square flex items-center w-1/2'>
+                            <div className='min-w-full flex pl-8 justify-center'>
+                              <img
+                                src={e.logo}
+                                alt='agora-logo'
+                                className='w-full maw-h-full max-w-[5rem]'
+                              />
+                            </div>
+                          </div>
+                          <div className='absolute bottom-0 -right-16 arrow'>
+                            <ArrowLink />
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <div className='flex mt-auto align-middle justify-center relative'>
+                        <div className=''>
+                          <img
+                            src={e.avatar}
+                            alt='agora-logo'
+                            className='h-full w-full aspect-square object-contain lg:max-w-[23vw] lg:max-h-[23vw]'
+                          />
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </Link>
-              );
-            })}
+                </div>
+              </Link>
+            ))}
           </div>
           <Navigate link='/' />
           <div className='flex w-full items-center justify-center '>
