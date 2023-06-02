@@ -4,7 +4,7 @@ import { uploadSchema as schema } from 'schema';
 import { useUpload } from './useUpload';
 
 export const Upload = () => {
-  const { handleDataUpload } = useUpload();
+  const { handleDataUpload, img } = useUpload();
   return (
     <div className='flex flex-col items-center h-screen mt-28'>
       <h2 className='text-xl font-semibold mb-10'>Upload new painting</h2>
@@ -29,6 +29,14 @@ export const Upload = () => {
           <Input name='img' type='file' label='Image - max 2MB' />
         </FormWrapper>
       </div>
+      {img?.name && (
+        <div className='mt-10'>
+          <img
+            src={`${import.meta.env.VITE_BASE_URL}${img.image?.thumbnail}`}
+            alt=''
+          />
+        </div>
+      )}
     </div>
   );
 };

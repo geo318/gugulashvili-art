@@ -2,13 +2,13 @@ import { ReactNode } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Schema } from 'zod';
-import { Image } from 'types';
+import { FormSubmitFunction } from 'types';
 
 export const FormWrapper: React.FC<{
   children: ReactNode;
   schema: Schema;
-  defaultValues?: { [key: string]: string | number | Date | Image };
-  onSubmit<T extends { [key: string]: any }>(data: T): Promise<void>;
+  defaultValues?: { [key: string]: any };
+  onSubmit: FormSubmitFunction<any>;
 }> = ({
   children,
   schema,
