@@ -1,11 +1,12 @@
 import { AnimatePresence } from 'framer-motion';
-import { Upload } from 'pages/Upload';
 import { Suspense, lazy } from 'react';
 import { Route, Routes, useLocation } from 'react-router';
 
 const Home = lazy(() => import('pages/Home/Home'));
 const Gallery = lazy(() => import('pages/Gallery/Gallery'));
 const Links = lazy(() => import('pages/Links/Links'));
+const Upload = lazy(() => import('pages/Upload/Upload'));
+const Update = lazy(() => import('pages/Update/Update'));
 
 export const AnimatedRoutes = () => {
   const location = useLocation();
@@ -41,6 +42,14 @@ export const AnimatedRoutes = () => {
           element={
             <Suspense>
               <Upload />
+            </Suspense>
+          }
+        />
+        <Route
+          path='/update'
+          element={
+            <Suspense>
+              <Update />
             </Suspense>
           }
         />

@@ -1,4 +1,4 @@
-import { uploadSchemaDefaults } from 'config';
+import { uploadInputDefaultValues as uploadSchemaDefaults } from 'config';
 import z from 'zod';
 
 const MAX_SIZE = 2000000;

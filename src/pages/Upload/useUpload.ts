@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { imgSchema } from 'schema';
-import { postImageData } from 'services/services';
+import { postImageData } from 'services';
 import { ImgData, UploadData } from 'types';
+import { uploadInputDefaultValues as defaultValues } from 'config';
 
 export const useUpload = () => {
   const [img, setImg] = useState<ImgData>();
@@ -15,5 +16,5 @@ export const useUpload = () => {
     }
   };
 
-  return { handleDataUpload, img };
+  return { handleDataUpload, img, defaultValues };
 };

@@ -8,14 +8,4 @@ export const postImageData = async (data: UploadData) =>
     },
   });
 
-// export const postImageData = async (data: UploadData) => {
-//   const response = await fetch(`${import.meta.env.VITE_BASE_URL}/upload`, {
-//     method: 'POST',
-//     body: JSON.stringify(data),
-//     headers: {
-//       'Content-Type': 'multipart/form-data',
-//       // 'Content-Type': 'application/x-www-form-urlencoded',
-//     },
-//   });
-//   return await response.json();
-// };
+export const getImages = async () => await axiosInstance.get('/paintings');
