@@ -7,3 +7,14 @@ export const axiosInstance = axios.create({
     'Content-Type': 'application/json',
   },
 });
+
+axiosInstance.interceptors.request.use((config) => {
+  const multipartHeader = {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  };
+  return ['post', 'patch'].some((m) => config.method === m)
+    ? Object.assign(config, multipartHeader)
+    : config;
+});

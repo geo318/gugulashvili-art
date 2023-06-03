@@ -3,9 +3,14 @@ import z from 'zod';
 
 const MAX_SIZE = 2000000;
 const MIME_TYPES = ['image/jpg', 'image/jpeg', 'image/png', 'image/webp'];
+const refineImage = z
+  .instanceof(FileList)
+  .refine((file: FileList) => file?.length, 'please, select an image')
+  .refine((file) => file[0]?.size <= MAX_SIZE, 'image is too big')
+  .refine((file) => MIME_TYPES.includes(file[0]?.type), 'incorrect file type');
 
-export const uploadSchema = z
-  .object({
+export const uploadSchemaBase = ({ partial = false }) =>
+  z.object({
     name: z
       .string()
       .nonempty('image name is empty')
@@ -32,19 +37,22 @@ export const uploadSchema = z
         `shouldn't be more then ${new Date().getFullYear()}`
       )
       .default(uploadSchemaDefaults.year),
-    img: z
-      .instanceof(FileList)
-      .refine((file) => file.length, 'please, select an image')
-      .refine((file) => file[0]?.size <= MAX_SIZE, 'image is too big')
-      .refine(
-        (file) => MIME_TYPES.includes(file[0]?.type),
-        'incorrect file type'
-      ),
-  })
+    img: partial ? z.instanceof(FileList) : refineImage,
+  });
+
+export const uploadSchemaPartial = uploadSchemaBase({
+  partial: true,
+})
+  .partial()
   .transform((data) => ({
     ...data,
-    img: data.img[0],
+    ...(data?.img && { img: data.img[0] }),
   }));
+
+export const uploadSchema = uploadSchemaBase({}).transform((data) => ({
+  ...data,
+  img: data?.img[0],
+}));
 
 export const imgSchema = z.object({
   name: z.string(),
