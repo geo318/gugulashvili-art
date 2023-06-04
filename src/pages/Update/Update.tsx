@@ -1,8 +1,16 @@
-import { EditIcon, UpdatePaintingModal } from 'Components';
+import {
+  EditIcon,
+  Flash,
+  UpdatePaintingModal,
+  useFlashMessage,
+} from 'Components';
 import { useUpdate } from './useUpdate';
 import { Spinner } from 'Components/Spinner';
+import { Link } from 'react-router-dom';
 
 export const Update = () => {
+  const { isFlashActive, setIsFlashActive, fleshMessage, handleFlashMessage } =
+    useFlashMessage();
   const {
     handleImageSelect,
     selectedImage,
@@ -12,9 +20,27 @@ export const Update = () => {
     refetch,
     images,
   } = useUpdate();
+
   return (
     <div className='flex flex-col items-center'>
-      <h1 className='text-3xl font-bold mt-10'>Edit paintings</h1>
+      <Flash
+        flashInfo={fleshMessage!}
+        isActive={isFlashActive}
+        setIsActive={setIsFlashActive}
+      />
+      <div className='flex items-center justify-center w-full px-10 mt-10'>
+        <Link to='/' className='text-blue-500 font-medium hover:underline'>
+          Home
+        </Link>
+        <h1 className='text-3xl font-bold mx-auto'>Edit paintings</h1>
+        <Link
+          to='/upload'
+          className='py-1 px-5 bg-blue-500 rounded-md text-white hover:bg-blue-600'
+        >
+          Upload
+        </Link>
+      </div>
+
       {isLoading ? (
         <div className='mt-14'>
           <Spinner />
@@ -23,6 +49,7 @@ export const Update = () => {
         <div className='p-8 mt-10 grid grid-cols-5 gap-5'>
           {isModalOpen && selectedImage && (
             <UpdatePaintingModal
+              handleFlashMessage={handleFlashMessage}
               toggleModal={toggleModal}
               defaults={selectedImage}
               refetch={refetch}

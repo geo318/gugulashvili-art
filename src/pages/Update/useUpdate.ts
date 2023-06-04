@@ -7,6 +7,7 @@ import { ImgData } from 'types';
 export const useUpdate = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<ImgData>();
+
   useEsc(() => setIsModalOpen(false));
   useToggleBodyScroll({ toggle: isModalOpen });
 

@@ -7,3 +7,4 @@ export * from './Navigate';
 export * from './Form';
 export * from './Portal';
 export * from './modals';
+export * from './Flash';

@@ -6,11 +6,25 @@ export const Upload = () => {
   const { handleDataUpload, defaultValues, isUploaded, setIsUploaded } =
     useUpload();
   return (
-    <div className='flex flex-col items-center h-screen mt-28'>
+    <div className='flex flex-col items-center h-screen'>
       {!isUploaded ? (
         <>
-          <h2 className='text-xl font-semibold mb-10'>Upload new painting</h2>
-          <div className='bg-white border border-slate-100 rounded-md w-full max-w-xs p-5 shrink'>
+          <div className='flex items-center justify-center w-full px-10 my-10'>
+            <Link
+              to='/'
+              className='text-blue-500 font-medium hover:underline w-20'
+            >
+              Home
+            </Link>
+            <h1 className='text-3xl font-bold mx-auto'>Upload new painting</h1>
+            <Link
+              to='/update'
+              className='text-blue-500 font-medium hover:underline w-20'
+            >
+              Paintings
+            </Link>
+          </div>
+          <div className='bg-white border border-slate-100 rounded-md w-full max-w-xs p-5 shrink mt-10'>
             <UploadForm
               handleSubmit={handleDataUpload}
               defaultValues={defaultValues}
@@ -18,7 +32,7 @@ export const Upload = () => {
           </div>
         </>
       ) : (
-        <div className='bg-white border border-slate-100 rounded-md w-full max-w-xs p-5 shrink'>
+        <div className='bg-white border border-slate-100 rounded-md w-full max-w-xs p-5 shrink mt-20'>
           <h2 className='text-xl font-semibold mb-10 text-center text-green-500'>
             Uploaded!
           </h2>
