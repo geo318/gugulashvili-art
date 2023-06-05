@@ -13,6 +13,7 @@ export const useAuth = ({ to = '/', back = '/' }) => {
         setIsLoading(() => false);
       } catch {
         navigate(back);
+        setIsLoading(() => false);
       }
     })();
     return () => setIsLoading(() => false);
