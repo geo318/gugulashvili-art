@@ -1,4 +1,4 @@
-import { UploadData } from 'types';
+import { LoginProps, UploadData } from 'types';
 import { axiosInstance } from './axios';
 
 export const postImageData = async (data: UploadData) =>
@@ -11,3 +11,8 @@ export const getImages = async () => await axiosInstance.get('/paintings');
 
 export const deleteImage = async (id: string) =>
   await axiosInstance.delete(`/delete/${id}`);
+
+export const login = async (auth: LoginProps) =>
+  await axiosInstance.post('/login', auth);
+
+export const checkAuth = async () => await axiosInstance.get('/check');

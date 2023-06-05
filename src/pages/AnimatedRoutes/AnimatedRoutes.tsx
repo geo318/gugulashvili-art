@@ -5,6 +5,7 @@ import { Route, Routes, useLocation } from 'react-router';
 const Home = lazy(() => import('pages/Home/Home'));
 const Gallery = lazy(() => import('pages/Gallery/Gallery'));
 const Links = lazy(() => import('pages/Links/Links'));
+const Login = lazy(() => import('pages/Login/Login'));
 const Upload = lazy(() => import('pages/Upload/Upload'));
 const Update = lazy(() => import('pages/Update/Update'));
 
@@ -34,6 +35,14 @@ export const AnimatedRoutes = () => {
           element={
             <Suspense>
               <Links />
+            </Suspense>
+          }
+        />
+        <Route
+          path='/login'
+          element={
+            <Suspense>
+              <Login />
             </Suspense>
           }
         />

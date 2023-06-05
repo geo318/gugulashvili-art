@@ -1,24 +1,34 @@
 import { useState } from 'react';
-import { imgSchema } from 'schema';
 import { postImageData } from 'services';
-import { ImgData, UploadData } from 'types';
+import { UploadData } from 'types';
 import { uploadInputDefaultValues as defaultValues } from 'config';
+import { useAuth } from 'hooks/useAuth';
+import { useFlashMessage } from 'Components';
 
 export const useUpload = () => {
-  const [img, setImg] = useState<ImgData>();
   const [isUploaded, setIsUploaded] = useState(false);
+  useAuth({ to: '', back: '/login' });
+
+  const { flashMessage, handleFlashMessage, isFlashActive, setIsFlashActive } =
+    useFlashMessage();
 
   const handleDataUpload = async (data: UploadData) => {
     try {
-      const res = await postImageData(data);
-      const image = imgSchema.safeParse(res.data);
-
-      if (image.success) setImg(image.data);
+      await postImageData(data);
+      handleFlashMessage();
       setIsUploaded(() => true);
-    } catch (error) {
-      console.log(error);
+    } catch {
+      handleFlashMessage(!!'error');
     }
   };
 
-  return { handleDataUpload, img, defaultValues, isUploaded, setIsUploaded };
+  return {
+    isUploaded,
+    flashMessage,
+    defaultValues,
+    isFlashActive,
+    setIsUploaded,
+    setIsFlashActive,
+    handleDataUpload,
+  };
 };

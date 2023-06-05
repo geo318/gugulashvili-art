@@ -1,1 +1,3 @@
-export * from './schema';
+export * from './uploadSchema';
+export * from './loginSchema';
+export * from './paintingSchema';

@@ -1,13 +1,6 @@
 import { uploadInputDefaultValues as uploadSchemaDefaults } from 'config';
+import { imgSchema } from './shared';
 import z from 'zod';
-
-const MAX_SIZE = 2000000;
-const MIME_TYPES = ['image/jpg', 'image/jpeg', 'image/png', 'image/webp'];
-const refineImage = z
-  .instanceof(FileList)
-  .refine((file: FileList) => file?.length, 'please, select an image')
-  .refine((file) => file[0]?.size <= MAX_SIZE, 'image is too big')
-  .refine((file) => MIME_TYPES.includes(file[0]?.type), 'incorrect file type');
 
 export const uploadSchemaBase = ({ partial = false }) =>
   z.object({
@@ -37,7 +30,7 @@ export const uploadSchemaBase = ({ partial = false }) =>
         `shouldn't be more then ${new Date().getFullYear()}`
       )
       .default(uploadSchemaDefaults.year),
-    img: partial ? z.instanceof(FileList) : refineImage,
+    img: partial ? z.instanceof(FileList) : imgSchema,
   });
 
 export const uploadSchemaPartial = uploadSchemaBase({
@@ -53,14 +46,3 @@ export const uploadSchema = uploadSchemaBase({}).transform((data) => ({
   ...data,
   img: data?.img[0],
 }));
-
-export const imgSchema = z.object({
-  name: z.string(),
-  description: z.string(),
-  size: z.string(),
-  year: z.coerce.number(),
-  image: z.object({ fullSize: z.string(), thumbnail: z.string() }),
-  createdAt: z.coerce.date(),
-  updatedAt: z.coerce.date(),
-  _id: z.string(),
-});

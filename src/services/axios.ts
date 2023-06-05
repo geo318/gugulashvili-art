@@ -8,13 +8,22 @@ export const axiosInstance = axios.create({
   },
 });
 
+const token = localStorage.getItem('token');
+
 axiosInstance.interceptors.request.use((config) => {
-  const multipartHeader = {
+  const headers = {
     headers: {
       'Content-Type': 'multipart/form-data',
+      ...(token && { Authorization: `Basic ${token}` }),
     },
   };
-  return ['post', 'patch'].some((m) => config.method === m)
-    ? Object.assign(config, multipartHeader)
+
+  if (config.method === 'get' && config.url?.includes('check'))
+    return Object.assign(config, headers);
+
+  return ['post', 'patch', 'delete'].some(
+    (m) => config.method === m && !config.url?.includes('login')
+  )
+    ? Object.assign(config, headers)
     : config;
 });

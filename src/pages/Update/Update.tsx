@@ -1,19 +1,16 @@
-import {
-  EditIcon,
-  Flash,
-  UpdatePaintingModal,
-  useFlashMessage,
-} from 'Components';
+import { Flash, EditIcon, UpdatePaintingModal } from 'Components';
 import { useUpdate } from './useUpdate';
 import { Spinner } from 'Components/Spinner';
 import { Link } from 'react-router-dom';
 
 export const Update = () => {
-  const { isFlashActive, setIsFlashActive, fleshMessage, handleFlashMessage } =
-    useFlashMessage();
   const {
+    handleFlashMessage,
     handleImageSelect,
+    setIsFlashActive,
+    isFlashActive,
     selectedImage,
+    flashMessage,
     isModalOpen,
     toggleModal,
     isLoading,
@@ -24,7 +21,7 @@ export const Update = () => {
   return (
     <div className='flex flex-col items-center'>
       <Flash
-        flashInfo={fleshMessage!}
+        flashInfo={flashMessage!}
         isActive={isFlashActive}
         setIsActive={setIsFlashActive}
       />

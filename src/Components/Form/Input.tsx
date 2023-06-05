@@ -15,11 +15,11 @@ export const Input: React.FC<{
 
   return (
     <div className='w-full'>
-      <label htmlFor={name} className='text-sm font-bold'>
+      <label htmlFor={name} className='text-sm font-bold text-gray-700'>
         {!noLabel && (label || placeholder)}
       </label>
       <input
-        className={`w-full border border-slate-700 rounded-md py-2 px-5 text-sm ${
+        className={`text-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:border-gray-400 focus:outline-none focus:shadow-inner ${
           type === 'file' && '!p-1'
         }`}
         type={type || 'text'}

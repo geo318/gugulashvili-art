@@ -1,12 +1,24 @@
-import { UploadForm } from 'Components';
+import { Flash, UploadForm } from 'Components';
 import { useUpload } from './useUpload';
 import { Link } from 'react-router-dom';
 
 export const Upload = () => {
-  const { handleDataUpload, defaultValues, isUploaded, setIsUploaded } =
-    useUpload();
+  const {
+    setIsFlashActive,
+    handleDataUpload,
+    isFlashActive,
+    setIsUploaded,
+    defaultValues,
+    flashMessage,
+    isUploaded,
+  } = useUpload();
   return (
     <div className='flex flex-col items-center h-screen'>
+      <Flash
+        flashInfo={flashMessage!}
+        isActive={isFlashActive}
+        setIsActive={setIsFlashActive}
+      />
       {!isUploaded ? (
         <>
           <div className='flex items-center justify-center w-full px-10 my-10'>

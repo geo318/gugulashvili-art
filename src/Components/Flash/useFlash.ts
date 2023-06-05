@@ -11,7 +11,7 @@ export const useFlash = ({ isActive, setIsActive }: Props) => {
     if (!isActive) return;
     const timer = setTimeout(() => {
       toggleFlash();
-    }, 3000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, [isActive, toggleFlash]);

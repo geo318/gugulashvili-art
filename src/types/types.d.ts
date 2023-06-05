@@ -1,5 +1,5 @@
 import { uploadSchemaDefaults } from 'config';
-import { uploadSchema, imgSchema } from 'schema';
+import { uploadSchema, imgSchema, loginSchema } from 'schema';
 import z from 'zod';
 
 export interface Props {
@@ -28,3 +28,5 @@ export type ImgData = z.infer<typeof imgSchema>;
 export type FormSubmitFunction<T extends { [key: T]: T }> = (
   data: T
 ) => Promise<void>;
+
+export type LoginProps = z.infer<typeof loginSchema>;
