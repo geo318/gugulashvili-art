@@ -8,9 +8,8 @@ export const axiosInstance = axios.create({
   },
 });
 
-const token = localStorage.getItem('token');
-
 axiosInstance.interceptors.request.use((config) => {
+  const token = localStorage.getItem('token');
   const headers = {
     headers: {
       'Content-Type': 'multipart/form-data',

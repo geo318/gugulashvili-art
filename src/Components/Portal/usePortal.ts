@@ -13,7 +13,8 @@ export const usePortal = ({ className = '' }) => {
       'overflow-y-auto',
       'backdrop-blur-sm',
       'bg-black',
-      'bg-opacity-50'
+      'bg-opacity-50',
+      'z-50'
     );
 
     document.querySelector<HTMLElement>('body')!.append(portal);

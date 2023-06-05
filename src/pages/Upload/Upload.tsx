@@ -1,4 +1,4 @@
-import { Flash, UploadForm, Spinner } from 'Components';
+import { Flash, UploadForm, Spinner, NavBar } from 'Components';
 import { useUpload } from './useUpload';
 import { Link } from 'react-router-dom';
 
@@ -25,21 +25,8 @@ export const Upload = () => {
         <Spinner />
       ) : !isUploaded ? (
         <>
-          <div className='flex items-center justify-center w-full px-10 my-10'>
-            <Link
-              to='/'
-              className='text-blue-500 font-medium hover:underline w-20'
-            >
-              Home
-            </Link>
-            <h1 className='text-3xl font-bold mx-auto'>Upload new painting</h1>
-            <Link
-              to='/update'
-              className='text-blue-500 font-medium hover:underline w-20'
-            >
-              Paintings
-            </Link>
-          </div>
+          <NavBar nextLink='/update' nextLabel='Paintings' />
+          <h1 className='text-3xl font-bold mx-auto'>Upload new painting</h1>
           <div className='bg-white border border-slate-100 rounded-md w-full max-w-xs p-5 shrink mt-10'>
             <UploadForm
               handleSubmit={handleDataUpload}

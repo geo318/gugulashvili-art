@@ -1,7 +1,6 @@
-import { Flash, EditIcon, UpdatePaintingModal } from 'Components';
+import { Flash, EditIcon, UpdatePaintingModal, NavBar } from 'Components';
 import { useUpdate } from './useUpdate';
 import { Spinner } from 'Components/Spinner';
-import { Link } from 'react-router-dom';
 
 export const Update = () => {
   const {
@@ -21,30 +20,19 @@ export const Update = () => {
 
   return (
     <div className='flex flex-col items-center'>
+      <NavBar nextLink='/upload' nextLabel='Upload new' />
       <Flash
         flashInfo={flashMessage!}
         isActive={isFlashActive}
         setIsActive={setIsFlashActive}
       />
-      <div className='flex items-center justify-center w-full px-10 mt-10'>
-        <Link to='/' className='text-blue-500 font-medium hover:underline'>
-          Home
-        </Link>
-        <h1 className='text-3xl font-bold mx-auto'>Edit paintings</h1>
-        <Link
-          to='/upload'
-          className='py-1 px-5 bg-blue-500 rounded-md text-white hover:bg-blue-600'
-        >
-          Upload
-        </Link>
-      </div>
-
+      <h1 className='text-3xl font-bold mx-auto'>Edit paintings</h1>
       {isLoading || isPageLoading ? (
         <div className='mt-14'>
           <Spinner />
         </div>
       ) : (
-        <div className='p-8 mt-10 grid grid-cols-5 gap-5'>
+        <div className='p-8 mt-10 grid grid-cols-5 gap-5 mb-16'>
           {isModalOpen && selectedImage && (
             <UpdatePaintingModal
               handleFlashMessage={handleFlashMessage}

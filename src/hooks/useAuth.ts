@@ -12,7 +12,6 @@ export const useAuth = ({ to = '/', back = '/' }) => {
         res.status === 200 && navigate(to);
         setIsLoading(() => false);
       } catch {
-        localStorage.removeItem('token');
         navigate(back);
       }
     })();

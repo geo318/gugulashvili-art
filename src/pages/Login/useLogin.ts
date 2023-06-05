@@ -5,9 +5,8 @@ import { login } from 'services';
 import { LoginProps } from 'types';
 
 export const useLogin = () => {
-  const navigate = useNavigate();
   const { isLoading } = useAuth({ to: '/upload', back: '/login' });
-
+  const navigate = useNavigate();
   const { flashMessage, handleFlashMessage, isFlashActive, setIsFlashActive } =
     useFlashMessage('invalid credentials');
 
@@ -21,6 +20,7 @@ export const useLogin = () => {
       handleFlashMessage(!!'error');
     }
   };
+
   return {
     isLoading,
     handleLogin,

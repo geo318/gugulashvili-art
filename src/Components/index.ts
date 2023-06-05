@@ -9,3 +9,5 @@ export * from './Portal';
 export * from './modals';
 export * from './Flash';
 export * from './Spinner';
+export * from './NavBar';
+export * from './Logout';
