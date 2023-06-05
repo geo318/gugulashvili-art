@@ -1,4 +1,4 @@
-import { Flash, UploadForm } from 'Components';
+import { Flash, UploadForm, Spinner } from 'Components';
 import { useUpload } from './useUpload';
 import { Link } from 'react-router-dom';
 
@@ -11,7 +11,9 @@ export const Upload = () => {
     defaultValues,
     flashMessage,
     isUploaded,
+    isLoading,
   } = useUpload();
+
   return (
     <div className='flex flex-col items-center h-screen'>
       <Flash
@@ -19,7 +21,9 @@ export const Upload = () => {
         isActive={isFlashActive}
         setIsActive={setIsFlashActive}
       />
-      {!isUploaded ? (
+      {isLoading ? (
+        <Spinner />
+      ) : !isUploaded ? (
         <>
           <div className='flex items-center justify-center w-full px-10 my-10'>
             <Link

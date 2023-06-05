@@ -6,8 +6,8 @@ import { useAuth } from 'hooks/useAuth';
 import { useFlashMessage } from 'Components';
 
 export const useUpload = () => {
+  const { isLoading } = useAuth({ to: '', back: '/login' });
   const [isUploaded, setIsUploaded] = useState(false);
-  useAuth({ to: '', back: '/login' });
 
   const { flashMessage, handleFlashMessage, isFlashActive, setIsFlashActive } =
     useFlashMessage();
@@ -23,6 +23,7 @@ export const useUpload = () => {
   };
 
   return {
+    isLoading,
     isUploaded,
     flashMessage,
     defaultValues,

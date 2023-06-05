@@ -10,6 +10,7 @@ export const Update = () => {
     setIsFlashActive,
     isFlashActive,
     selectedImage,
+    isPageLoading,
     flashMessage,
     isModalOpen,
     toggleModal,
@@ -38,7 +39,7 @@ export const Update = () => {
         </Link>
       </div>
 
-      {isLoading ? (
+      {isLoading || isPageLoading ? (
         <div className='mt-14'>
           <Spinner />
         </div>

@@ -7,11 +7,12 @@ import { getImages } from 'services';
 import { ImgData } from 'types';
 
 export const useUpdate = () => {
+  const { isLoading: isPageLoading } = useAuth({ to: '', back: '/login' });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<ImgData>();
   const { isFlashActive, setIsFlashActive, flashMessage, handleFlashMessage } =
     useFlashMessage();
-  useAuth({ to: '', back: '/login' });
+
   useEsc(() => setIsModalOpen(false));
   useToggleBodyScroll({ toggle: isModalOpen });
 
@@ -35,6 +36,7 @@ export const useUpdate = () => {
     isModalOpen,
     toggleModal,
     flashMessage,
+    isPageLoading,
     isFlashActive,
     selectedImage,
     setIsFlashActive,
