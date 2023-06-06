@@ -4,8 +4,8 @@ import artforum from './artforum.png';
 import biennale from './biennale.png';
 import ZuraGugulashviliThumb from './ZuraGugulashviliThumb.jpg';
 import paintThumb from './paintThumb.jpg';
-import artforumThumb from './artforumThumb.png';
-import biennaleThumb from './biennaleThumb.png';
+import artforumThumb from './artforumThumb.jpg';
+import biennaleThumb from './biennaleThumb.jpg';
 
 export const externals = [
   {
