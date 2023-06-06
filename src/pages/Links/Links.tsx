@@ -73,11 +73,13 @@ export const Links = () => {
                           </div>
                           <div className='aspect-square flex items-center w-1/2'>
                             <div className='min-w-full flex pl-8 justify-center'>
-                              <img
-                                src={e.logo}
-                                alt='agora-logo'
-                                className='w-full maw-h-full max-w-[5rem]'
-                              />
+                              <div className='max-w-[5rem]'>
+                                <ImgLoader
+                                  src={e.avatar}
+                                  thumbnail={e.thumb}
+                                  alt={e.heading}
+                                />
+                              </div>
                             </div>
                           </div>
                           <div className='absolute bottom-0 -right-16 arrow'>
@@ -87,11 +89,11 @@ export const Links = () => {
                       </>
                     ) : (
                       <div className='flex mt-auto align-middle justify-center relative'>
-                        <div className=''>
-                          <img
+                        <div className='h-full w-full aspect-square object-contain lg:max-w-[23vw] lg:max-h-[23vw]'>
+                          <ImgLoader
                             src={e.avatar}
-                            alt='agora-logo'
-                            className='h-full w-full aspect-square object-contain lg:max-w-[23vw] lg:max-h-[23vw]'
+                            thumbnail={e.thumb}
+                            alt={e.link}
                           />
                         </div>
                       </div>
