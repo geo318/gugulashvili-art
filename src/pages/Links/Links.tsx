@@ -1,4 +1,4 @@
-import { ArrowLink, Footer, Layout, Navigate } from 'Components';
+import { ArrowLink, Footer, ImgLoader, Layout, Navigate } from 'Components';
 import { motion } from 'framer-motion';
 import { externals } from 'assets';
 import { Link } from 'react-router-dom';
@@ -56,10 +56,10 @@ export const Links = () => {
                       <>
                         <div className=' mb-8 relative pt-[25%]'>
                           <div className='absolute top-0 min-w-[160%] heading'>
-                            <img
-                              src={e.heading}
-                              alt='art-mine'
-                              className='h-full w-full'
+                            <ImgLoader
+                              src={e.avatar}
+                              thumbnail={e.thumb}
+                              alt={e.heading}
                             />
                           </div>
                         </div>

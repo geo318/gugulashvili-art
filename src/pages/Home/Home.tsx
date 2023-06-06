@@ -1,5 +1,5 @@
-import { avatar } from 'assets';
-import { Layout, Footer, Navigate } from 'Components';
+import { avatar, avatarThumb } from 'assets';
+import { Layout, Footer, Navigate, ImgLoader } from 'Components';
 import { motion } from 'framer-motion';
 
 export const Home = () => (
@@ -32,11 +32,13 @@ export const Home = () => (
             }}
           >
             <div className='absolute inset-0 bg-green-500 bg-opacity-10' />
-            <img
-              src={avatar}
-              alt=''
-              className='select-none pointer-events-none'
-            />
+            <div className='select-none pointer-events-none h-[12rem] w-full]'>
+              <ImgLoader
+                src={avatar}
+                thumbnail={avatarThumb}
+                alt='Zura Gugulashvili'
+              />
+            </div>
           </motion.div>
           <h1 className='text-[2rem] leading-[2rem] lg:text-[3.25rem] lg:leading-[3.25rem] font-medium mb-10'>
             Zura Gugulashvili
