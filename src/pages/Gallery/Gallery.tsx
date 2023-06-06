@@ -1,21 +1,21 @@
 import { Footer, Layout, Navigate } from 'Components';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Suspense, lazy } from 'react';
-import { images } from 'assets';
+import { images as bgImage } from 'assets';
 import { useGallery } from './useGallery';
 
 const View = lazy(() => import('Components/View/View'));
 const Slides = lazy(() => import('pages/Gallery/Slides/Slides'));
 
 export const Gallery = () => {
-  const { hovered, setHovered, imageIndex, setImageIndex, close } =
+  const { hovered, setHovered, imageIndex, setImageIndex, images, close } =
     useGallery();
 
   return (
     <motion.div>
       <div className='fixed inset-0 bg-gradient-to-r bg-white bg-opacity-90'>
         <img
-          src={images.doctorsHands}
+          src={bgImage?.doctorsHands}
           alt='background'
           className='object-cover w-screen h-screen scale-125 opacity-10'
         />
@@ -24,7 +24,12 @@ export const Gallery = () => {
       <AnimatePresence>
         {imageIndex != null && (
           <Suspense>
-            <View index={imageIndex} close={close} setIndex={setImageIndex} />
+            <View
+              index={imageIndex}
+              close={close}
+              turnSlide={setImageIndex}
+              imageArr={images}
+            />
           </Suspense>
         )}
       </AnimatePresence>
@@ -33,9 +38,10 @@ export const Gallery = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
         >
-          <div className='lg:pt-28 pt-10' onMouseLeave={() => setHovered('')}>
+          <div className='lg:pt-40 pt-20' onMouseLeave={() => setHovered('')}>
             <Suspense>
               <Slides
+                imageArr={images}
                 hovered={hovered}
                 setHovered={setHovered}
                 setImageIndex={setImageIndex}

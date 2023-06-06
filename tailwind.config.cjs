@@ -5,6 +5,10 @@ module.exports = {
       rotate: {
         22: '22deg',
       },
+      aspectRatio: {
+        '7/5': '7 / 5',
+        '5/7': '5 / 7',
+      },
       borderRadius: {
         ten: '10px',
         four: '4px',

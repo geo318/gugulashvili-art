@@ -1,19 +1,26 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { thumbnails, imageArr as slideData, imageArr, images } from 'assets';
 import { motion } from 'framer-motion';
 import { useScreenWidth } from 'hooks';
 import { SlideProps } from './type';
+import { getImage } from 'helpers';
+import { ImgLoader } from 'Components';
 
-export const Slides = ({ hovered, setHovered, setImageIndex }: SlideProps) => {
+export const Slides = ({
+  hovered,
+  imageArr,
+  setHovered,
+  setImageIndex,
+}: SlideProps) => {
   const isMobile = useScreenWidth();
+
   return (
     <>
       {isMobile ? (
-        <motion.div className='flex flex-col gap-5 mb-10'>
-          {slideData.map((i, index) => (
+        <motion.div className='flex flex-col gap-5 mb-0'>
+          {imageArr.map((i, index) => (
             <motion.div
               className='overflow-hidden max-w-full relative flex'
-              key={i.key}
+              key={i._id}
               onMouseOver={() => setHovered(`${index}`)}
               onClick={() => {
                 setImageIndex(index);
@@ -22,12 +29,12 @@ export const Slides = ({ hovered, setHovered, setImageIndex }: SlideProps) => {
               initial={{ opacity: 0, translateY: '100' }}
               animate={{ opacity: 1, translateY: 0 }}
               exit={{ opacity: 0, translateY: '100' }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.2, delay: 0.2 }}
             >
-              <img
-                src={images[i.key]}
-                alt={i.info}
-                className='w-full max-w-full object-fit relative h-full'
+              <ImgLoader
+                src={getImage(i.image.fullSize)}
+                thumbnail={getImage(i.image.thumbnail)}
+                alt={i.name}
               />
             </motion.div>
           ))}
@@ -50,7 +57,7 @@ export const Slides = ({ hovered, setHovered, setImageIndex }: SlideProps) => {
             longSwipes
             slidesOffsetAfter={800}
           >
-            {slideData.map((i, index) => (
+            {imageArr.map((i, index) => (
               <SwiperSlide
                 className={`${
                   index % 2 && !hovered
@@ -62,7 +69,7 @@ export const Slides = ({ hovered, setHovered, setImageIndex }: SlideProps) => {
                 key={`${i.name} ${i.size}`}
               >
                 <div
-                  className={`w-full h-full ${
+                  className={`w-full h-full aspect-[7/5] ${
                     hovered === `${index}`
                       ? 'active'
                       : !hovered
@@ -75,10 +82,10 @@ export const Slides = ({ hovered, setHovered, setImageIndex }: SlideProps) => {
                     setHovered('');
                   }}
                 >
-                  <img
-                    src={thumbnails[i.key]}
-                    alt={i.info}
-                    className='w-full h-full object-cover'
+                  <ImgLoader
+                    src={getImage(i.image.fullSize)}
+                    thumbnail={getImage(i.image.thumbnail)}
+                    alt={i.name}
                   />
                 </div>
               </SwiperSlide>
@@ -86,18 +93,6 @@ export const Slides = ({ hovered, setHovered, setImageIndex }: SlideProps) => {
           </Swiper>
         </motion.div>
       )}
-      <div className='hidden'>
-        {imageArr.map((i) => (
-          <img
-            src={images[i.key]}
-            alt='images.name'
-            key={`${i.key}-pre`}
-            role='presentation'
-            loading='lazy'
-            decoding='async'
-          />
-        ))}
-      </div>
     </>
   );
 };

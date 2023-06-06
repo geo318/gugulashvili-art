@@ -11,3 +11,4 @@ export * from './Flash';
 export * from './Spinner';
 export * from './NavBar';
 export * from './Logout';
+export * from './ImgLoader';

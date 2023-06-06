@@ -1,6 +1,13 @@
-import { Flash, EditIcon, UpdatePaintingModal, NavBar } from 'Components';
+import {
+  Flash,
+  EditIcon,
+  UpdatePaintingModal,
+  NavBar,
+  ImgLoader,
+} from 'Components';
 import { useUpdate } from './useUpdate';
 import { Spinner } from 'Components/Spinner';
+import { getImage } from 'helpers';
 
 export const Update = () => {
   const {
@@ -28,11 +35,11 @@ export const Update = () => {
       />
       <h1 className='text-3xl font-bold mx-auto'>Edit paintings</h1>
       {isLoading || isPageLoading ? (
-        <div className='mt-14'>
+        <div className='mt-14 pt-14'>
           <Spinner />
         </div>
       ) : (
-        <div className='p-8 mt-10 grid grid-cols-5 gap-5 mb-16'>
+        <div className='p-8 mt-10 grid grid-cols-5 gap-5 mb-16 w-full'>
           {isModalOpen && selectedImage && (
             <UpdatePaintingModal
               handleFlashMessage={handleFlashMessage}
@@ -55,11 +62,13 @@ export const Update = () => {
                 >
                   <EditIcon />
                 </div>
-                <img
-                  className='object-cover rounded-md aspect-3/2'
-                  src={`${import.meta.env.VITE_BASE_URL}${img.image?.fullSize}`}
-                  alt={img.description}
-                />
+                <div className='aspect-[7/5]'>
+                  <ImgLoader
+                    alt={img.name}
+                    src={getImage(img.image?.fullSize)}
+                    thumbnail={getImage(img.image?.thumbnail)}
+                  />
+                </div>
 
                 <div className='text-xs flex flex-col p-3 gap-1 font-medium'>
                   <p>
