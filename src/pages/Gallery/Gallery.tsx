@@ -1,7 +1,7 @@
-import { Footer, Layout, Navigate } from 'Components';
+import { Footer, ImgLoader, Layout, Navigate } from 'Components';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Suspense, lazy } from 'react';
-import { images as bgImage } from 'assets';
+import { bgFull, bgThumb } from 'assets';
 import { useGallery } from './useGallery';
 
 const View = lazy(() => import('Components/View/View'));
@@ -14,11 +14,9 @@ export const Gallery = () => {
   return (
     <motion.div>
       <div className='fixed inset-0 bg-gradient-to-r bg-white bg-opacity-90'>
-        <img
-          src={bgImage?.doctorsHands}
-          alt='background'
-          className='object-cover w-screen h-screen scale-125 opacity-10'
-        />
+        <div className='object-cover w-full h-full scale-125 opacity-10'>
+          <ImgLoader src={bgFull} thumbnail={bgThumb} alt='background' />
+        </div>
         <div className='bg-black bg-opacity-5 inset-0 absolute'></div>
       </div>
       <AnimatePresence>
