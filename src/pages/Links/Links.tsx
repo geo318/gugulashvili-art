@@ -65,10 +65,10 @@ export const Links = () => {
                         </div>
                         <div className='flex mt-auto align-middle justify-center relative'>
                           <div className='w-1/2'>
-                            <img
+                            <ImgLoader
                               src={e.avatar}
-                              alt='avatar'
-                              className='w-full h-full'
+                              thumbnail={e.thumb}
+                              alt={e.heading}
                             />
                           </div>
                           <div className='aspect-square flex items-center w-1/2'>
