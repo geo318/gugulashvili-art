@@ -57,7 +57,7 @@ export const Update = () => {
                 className='group col-span-1 border border-zinc-200 bg-white rounded-md relative'
               >
                 <div
-                  className='absolute inset-0 bg-white bg-opacity-60 group-hover:flex hidden text-blue-500 cursor-pointer items-center justify-center pb-10'
+                  className='absolute inset-0 z-20 bg-white bg-opacity-60 group-hover:flex hidden text-blue-500 cursor-pointer items-center justify-center pb-10'
                   onClick={() => handleImageSelect(img)}
                 >
                   <EditIcon />
