@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { motion } from 'framer-motion';
 import { useScreenWidth } from 'hooks';
 import { SlideProps } from './type';
-import { getImage } from 'helpers';
+import { getImage, getRatio } from 'helpers';
 import { ImgLoader } from 'Components';
 
 export const Slides = ({
@@ -19,7 +19,9 @@ export const Slides = ({
         <motion.div className='flex flex-col gap-5 mb-0'>
           {imageArr.map((i, index) => (
             <motion.div
-              className='overflow-hidden max-w-full relative flex'
+              className={`overflow-hidden max-w-full relative flex ${
+                getRatio(i.size) < 1 ? 'aspect-[9/7]' : 'aspect-[7/9]'
+              }`}
               key={i._id}
               onMouseOver={() => setHovered(`${index}`)}
               onClick={() => {
@@ -69,7 +71,9 @@ export const Slides = ({
                 key={`${i.name} ${i.size}`}
               >
                 <div
-                  className={`w-full h-full aspect-[7/5] ${
+                  className={`w-full h-full ${
+                    getRatio(i.size) < 1 ? 'aspect-[9/7]' : 'aspect-[7/9]'
+                  } ${
                     hovered === `${index}`
                       ? 'active'
                       : !hovered

@@ -12,9 +12,6 @@ export const Links = () => {
     setIsPlayerLoading(false);
   };
 
-  const handleBuffer = () => {
-    setIsPlayerLoading(true);
-  };
   return (
     <motion.div>
       <Layout className='select-none flex flex-col min-h-full'>
@@ -34,13 +31,12 @@ export const Links = () => {
                 }`}
               >
                 <ReactPlayer
-                  url='https://vimeo.com/823710805'
+                  url='https://www.youtube.com/watch?v=_FIVA-UhmZQ&ab_channel=carwow'
                   controls
                   width={'100%'}
                   height={'60%'}
-                  style={{ aspectRatio: '6/5' }}
+                  style={{ aspectRatio: '6/5', zIndex: 100 }}
                   onReady={handleReady}
-                  onBuffer={handleBuffer}
                 />
               </div>
             </div>

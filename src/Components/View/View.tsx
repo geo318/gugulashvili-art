@@ -39,7 +39,7 @@ export const View: React.FC<ViewProps & { close: () => void }> = ({
         onClick={close}
       />
       <motion.div
-        className='fixed z-50 lg:top-28 top-5'
+        className='fixed z-50 lg:top-28 top-5 max-w-[95%]'
         initial={{ opacity: 0, scale: 0.3 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
