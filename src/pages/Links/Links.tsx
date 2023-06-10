@@ -31,11 +31,11 @@ export const Links = () => {
                 }`}
               >
                 <ReactPlayer
-                  url='https://www.youtube.com/watch?v=_FIVA-UhmZQ&ab_channel=carwow'
+                  url='https://vimeo.com/823710805'
                   controls
                   width={'100%'}
                   height={'60%'}
-                  style={{ aspectRatio: '6/5', zIndex: 100 }}
+                  style={{ aspectRatio: '6/5' }}
                   onReady={handleReady}
                 />
               </div>

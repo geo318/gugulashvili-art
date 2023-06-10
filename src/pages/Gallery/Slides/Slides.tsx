@@ -16,7 +16,7 @@ export const Slides = ({
   return (
     <>
       {isMobile ? (
-        <motion.div className='flex flex-col gap-5 mb-0'>
+        <motion.div className='flex flex-col gap-5 mb-5'>
           {imageArr.map((i, index) => (
             <motion.div
               className={`overflow-hidden max-w-full relative flex ${
