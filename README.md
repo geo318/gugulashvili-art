@@ -75,4 +75,4 @@ The structure of the project is organized as follows:
 └── ...
 ```
 ---
-*George Lomidze.
+**George Lomidze**
