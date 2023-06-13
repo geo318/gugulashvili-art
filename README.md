@@ -30,15 +30,13 @@ Once you have installed the dependencies, you can start using the Gugulashvili A
 
 Gugulashvili Art is built using the following technologies and packages:
 
-- [React](https://reactjs.org): A JavaScript library for building user interfaces.
-- [TanStack React Query](https://react-query.tanstack.com): A data-fetching and caching library for React applications.
-- [Zod](https://github.com/colinhacks/zod): A TypeScript-first schema validation library with optional runtime validation.
-- [TypeScript](https://www.typescriptlang.org): A statically typed superset of JavaScript that compiles to plain JavaScript.
-- [Framer Motion](https://www.framer.com/api/motion/): A production-ready motion library for creating animations and transitions in React applications.
-- [Axios](https://axios-http.com/): A popular HTTP client for making API requests from the browser or Node.js.
-- [React Hook Form](https://react-hook-form.com/): A performant form validation library for React applications.
-
-Feel free to explore the documentation of each technology and package for more information on how to use them effectively in your project.
+- ![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white): A JavaScript library for building user interfaces.
+- ![TanStack React Query](https://img.shields.io/badge/-React%20Query-000000?logo=react&logoColor=white): A data-fetching and caching library for React applications.
+- ![Zod](https://img.shields.io/badge/-Zod-FDE68A?logo=typescript&logoColor=black): A TypeScript-first schema validation library with optional runtime validation.
+- ![TypeScript](https://img.shields.io/badge/-TypeScript-007ACC?logo=typescript&logoColor=white): A statically typed superset of JavaScript that compiles to plain JavaScript.
+- ![Framer Motion](https://img.shields.io/badge/-Framer%20Motion-000000?logo=framer&logoColor=blue): A production-ready motion library for creating animations and transitions in React applications.
+- ![Axios](https://img.shields.io/badge/-Axios-4E8EE9?logo=axios&logoColor=white): A popular HTTP client for making API requests from the browser or Node.js.
+- ![React Hook Form](https://img.shields.io/badge/-React%20Hook%20Form-0DA57A?logo=react&logoColor=white): A performant form validation library for React applications.
 
 ## Project Structure
 
@@ -76,5 +74,5 @@ The structure of the project is organized as follows:
 ├── README.md
 └── ...
 ```
-
-*This README provides a basic template for the Gugulashvili Art website.
+---
+*George Lomidze.
