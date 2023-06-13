@@ -44,6 +44,7 @@ Feel free to explore the documentation of each technology and package for more i
 
 The structure of the project is organized as follows:
 
+```
 ├── public/
 │ ├── index.html
 │ └── ...
@@ -74,7 +75,6 @@ The structure of the project is organized as follows:
 ├── package.json
 ├── README.md
 └── ...
-
----
+```
 
 *This README provides a basic template for the Gugulashvili Art website. Modify it according to your project's specific
