@@ -22,7 +22,7 @@ export const Links = () => {
           transition={{ duration: 1, delay: 0.3 }}
           className='flex flex-col min-h-screen lg:pt-32 pt-10'
         >
-          <div className='mb-10 grid xl:grid-cols-5 sm:grid-cols-2 grid-cols-1 gap-2 lg:px-16 px-4 relative min-h-full'>
+          <div className='mb-10 grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-2 lg:px-16 px-4 relative min-h-full'>
             <div className='flex w-full justify-center items-center'>
               {isPlayerLoading && <Spinner />}
               <div
