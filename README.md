@@ -77,4 +77,4 @@ The structure of the project is organized as follows:
 └── ...
 ```
 
-*This README provides a basic template for the Gugulashvili Art website. Modify it according to your project's specific
+*This README provides a basic template for the Gugulashvili Art website.
