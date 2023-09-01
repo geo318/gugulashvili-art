@@ -12,7 +12,6 @@ export const Slides = ({
   setImageIndex,
 }: SlideProps) => {
   const isMobile = useScreenWidth();
-
   return (
     <>
       {isMobile ? (
@@ -37,6 +36,7 @@ export const Slides = ({
                 src={getImage(i.image.fullSize)}
                 thumbnail={getImage(i.image.thumbnail)}
                 alt={i.name}
+                priority={index < 6}
               />
             </motion.div>
           ))}
@@ -50,7 +50,7 @@ export const Slides = ({
             translateX: 0,
           }}
           exit={{ opacity: 0, scale: 0.5, translateX: '20vw' }}
-          transition={{ delay: 0.3, duration: 0.5 }}
+          transition={{ delay: 0.5, duration: 0.3 }}
         >
           <Swiper
             className='pt-0 lg:px-28'
@@ -61,17 +61,17 @@ export const Slides = ({
           >
             {imageArr.map((i, index) => (
               <SwiperSlide
-                className={`${
+                className={`duration-300 delay-500 mr-3 hover:z-50 hover:shadow-xl ${
                   index % 2 && !hovered
                     ? 'lg:min-w-[22%] min-w-full'
                     : hovered
-                    ? 'lg:min-w-[20%] min-w-full'
+                    ? 'lg:min-w-[20%] min-w-full mr-1'
                     : 'lg:min-w-[18%] min-w-full'
                 }`}
                 key={`${i.name} ${i.size}`}
               >
                 <div
-                  className={`w-full h-full ${
+                  className={`w-full h-full hover:z-50 ${
                     getRatio(i.size) < 1 ? 'aspect-[9/7]' : 'aspect-[7/9]'
                   } ${
                     hovered === `${index}`

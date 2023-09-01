@@ -37,6 +37,7 @@ export const Home = () => (
                 src={avatar}
                 thumbnail={avatarThumb}
                 alt='Zura Gugulashvili'
+                priority
               />
             </div>
           </motion.div>

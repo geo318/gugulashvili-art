@@ -39,6 +39,7 @@ const Login = () => {
                 name='password'
                 placeholder='Enter your password'
                 label='Password'
+                type='password'
               />
             </FormWrapper>
           </div>
